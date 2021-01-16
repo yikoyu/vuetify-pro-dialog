@@ -1,4 +1,4 @@
-export type MessageType = 'success' | 'warning' | 'info' | 'error'
+export type MessageType = 'success' | 'warning' | 'info' | 'error' | 'loading'
 
 export type MessagePosition = 'top' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 

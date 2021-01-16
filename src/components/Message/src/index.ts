@@ -1,5 +1,5 @@
 import component from './index.vue'
-import { VSnackbar, VBtn, VIcon } from 'vuetify/lib'
+import { VSnackbar, VBtn, VIcon, VProgressCircular } from 'vuetify/lib'
 
 import { VueConstructor } from 'vue'
 import { MessageOption, MessageType } from './index.interface'
@@ -30,6 +30,13 @@ const Message = (text: string, options?: MessageOption) => {
     options = {}
   }
 
+  if (options?.type === 'loading') {
+    options.type = 'loading'
+    options.position = 'top'
+    options.showClose = false
+    options.timeout = -1
+  }
+
   const userOnClose = options.onClose // 提取自定义onClose函数
   let id = 'message_' + seed++
 
@@ -46,6 +53,7 @@ const Message = (text: string, options?: MessageOption) => {
     components: {
       VSnackbar: Vue.extend(VSnackbar),
       VBtn: Vue.extend(VBtn),
+      VProgressCircular: Vue.extend(VProgressCircular)
       // VIcon: Vue.extend(VIcon)
     },
     propsData: {
@@ -80,6 +88,19 @@ const Message = (text: string, options?: MessageOption) => {
   instances.push(instance)
 
   return instance
+}
+
+Message.loading = (text: string, options?: MessageOption) => {
+  if (typeof options !== 'object') {
+    options = {}
+  }
+
+  options.type = 'loading'
+  options.position = 'top'
+  options.showClose = false
+  options.timeout = -1
+
+  return Message(text, options)
 }
 
 Message.close = (id, userOnClose) => {

@@ -3,6 +3,7 @@
     <v-snackbar
       :value="true"
       v-show="isActive"
+      :timeout="-1"
       :color="getColor"
       :class="['pro-message', top && 'top', left && ($vuetify.rtl ? 'right' : 'left'), right && ($vuetify.rtl ? 'left' : 'right'), bottom && bottom]"
       :top="top"
@@ -20,7 +21,8 @@
       :transition="false"
       :style="positionStyle"
     >
-      <v-icon v-if="type && showIcon" v-bind="[{ [`${$vuetify.rtl ? 'right' : 'left'}`]: true }]">{{ '$' + type }}</v-icon>
+      <v-icon v-if="type && type !== 'loading' && showIcon" v-bind="[{ [`${$vuetify.rtl ? 'right' : 'left'}`]: true }]">{{ '$' + type }}</v-icon>
+      <v-progress-circular v-if="type === 'loading'" size="14" width="2" indeterminate color="primary" class="mr-1"></v-progress-circular>
       {{ text }}
 
       <template v-if="showClose" v-slot:action="{ attrs }">
@@ -113,6 +115,7 @@ export default {
   },
   computed: {
     getColor() {
+      if (this.type === 'loading') return this.color
       return this.color || this.type
     },
     positionStyle() {

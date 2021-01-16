@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-export type MessageType = 'success' | 'warning' | 'info' | 'error'
+export type MessageType = 'success' | 'warning' | 'info' | 'error' | 'loading'
 
 export type MessagePosition = 'top' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 
@@ -31,6 +31,22 @@ export interface VuetifyProMessageOptions {
   onClose?: CloseEventHandler
 }
 
+export interface VuetifyProMessageLoadingOptions {
+  key?: string
+  color?: string
+  elevation?: number | string
+  flat?: boolean
+  centered?: boolean
+  rounded?: boolean | string
+  outlined?: boolean
+  shaped?: boolean
+  onClose?: CloseEventHandler
+}
+
+export interface VuetifyProMessageLoading {
+  (text: string, options?: VuetifyProMessageLoadingOptions): VuetifyProMessageComponent
+}
+
 export interface VuetifyProMessage {
   (text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
 
@@ -42,11 +58,15 @@ export interface VuetifyProMessage {
 
   error(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
 
+  loading(text: string, options?: VuetifyProMessageLoadingOptions): VuetifyProMessageComponent
+
   closeAll(): void
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
     $message: VuetifyProMessage
+
+    $loading: VuetifyProMessageLoading
   }
 }
