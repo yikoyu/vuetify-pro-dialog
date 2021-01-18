@@ -23,7 +23,7 @@
     >
       <v-icon v-if="type && type !== 'loading' && showIcon" v-bind="[{ [`${$vuetify.rtl ? 'right' : 'left'}`]: true }]">{{ '$' + type }}</v-icon>
       <v-progress-circular v-if="type === 'loading'" size="14" width="2" indeterminate color="primary" class="mr-1"></v-progress-circular>
-      {{ text }}
+      {{ getText }}
 
       <template v-if="showClose" v-slot:action="{ attrs }">
         <v-btn v-bind="[{ [`${$vuetify.rtl ? 'left' : 'right'}`]: true }, attrs]" icon @click="isActive = false">
@@ -41,6 +41,10 @@ export default {
     timeout: {
       type: Number,
       default: 3000
+    },
+    width: {
+      type: Number,
+      default: 256
     },
     position: {
       type: String,
@@ -98,7 +102,7 @@ export default {
     },
     showIcon: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {
@@ -118,9 +122,13 @@ export default {
       if (this.type === 'loading') return this.color
       return this.color || this.type
     },
+    getText() {
+      return typeof this.text === 'function' ? this.text() : this.text
+    },
     positionStyle() {
       return {
-        [`${this.top ? 'top' : 'bottom'}`]: `${this.verticalOffset}px`
+        [`${this.top ? 'top' : 'bottom'}`]: `${this.verticalOffset}px`,
+        maxWidth: `${this.width}px`
       }
     }
   },

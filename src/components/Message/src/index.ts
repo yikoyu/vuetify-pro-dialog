@@ -24,17 +24,31 @@ function createTypeMessage() {
   })
 }
 
+function createTypeNotify() {
+  ['success', 'warning', 'info', 'error'].forEach(type => {
+    Message['notify'][type] = (text: string, options?: MessageOption) => {
+      if (typeof options !== 'object') {
+        options = {}
+      }
+    
+      options.type = type as MessageType
+      return Message.notify(text, options)
+    }
+  })
+}
+
 const Message = (text: string, options?: MessageOption) => {
   // 如果·options不是object则options为空
   if (typeof options !== 'object') {
     options = {}
   }
-
+  
   if (options?.type === 'loading') {
     options.type = 'loading'
-    options.position = 'top'
-    options.showClose = false
-    options.timeout = -1
+    options.showIcon = options.showIcon || true
+    options.position = options.position || 'top'
+    options.showClose = options.showClose || false
+    options.timeout = options.timeout || -1
   }
 
   const userOnClose = options.onClose // 提取自定义onClose函数
@@ -96,9 +110,23 @@ Message.loading = (text: string, options?: MessageOption) => {
   }
 
   options.type = 'loading'
-  options.position = 'top'
-  options.showClose = false
-  options.timeout = -1
+  options.showIcon = options.showIcon || true
+  options.position = options.position || 'top'
+  options.showClose = options.showClose || false
+  options.timeout = options.timeout || -1
+
+  return Message(text, options)
+}
+
+Message.notify = (text: string, options?: MessageOption) => {
+  if (typeof options !== 'object') {
+    options = {}
+  }
+
+  options.showIcon = options.showIcon || true
+  options.position = options.position || 'top-right'
+  options.showClose = options.showClose || true
+  options.timeout = options.timeout || 5000
 
   return Message(text, options)
 }
@@ -133,6 +161,7 @@ Message.closeAll = () => {
 }
 
 createTypeMessage()
+createTypeNotify()
 
 export default (v: VueConstructor, vtify) => {
   Vue = v
