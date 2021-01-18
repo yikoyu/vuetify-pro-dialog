@@ -1,9 +1,9 @@
 <template>
   <v-dialog v-model="isActive" :max-width="width" :persistent="persistent" :scrollable="scrollable" @click:outside="dialogOutside">
     <v-card dense tile>
-      <v-toolbar v-if="title" :dark="Boolean(getColor)" :color="getColor" dense flat>
+      <v-toolbar v-if="getTitle" :dark="Boolean(getColor)" :color="getColor" dense flat>
         <v-icon v-if="Boolean(getIcon) && showIcon" v-bind="[{ [`${$vuetify.rtl ? 'right' : 'left'}`]: true }]">{{ getIcon }}</v-icon>
-        <v-toolbar-title class="">{{ title }}</v-toolbar-title>
+        <v-toolbar-title class="">{{ getTitle }}</v-toolbar-title>
 
         <v-spacer />
 
@@ -12,8 +12,8 @@
         </v-btn>
       </v-toolbar>
 
-      <v-card-text v-if="['alert', 'confirm'].includes($type)" class="body-1 py-2" :class="{ 'pt-4': !title }" v-html="getText" />
-      <v-card-text v-if="['prompt'].includes($type)" class="body-1 py-2" :class="{ 'pt-4': !title }">
+      <v-card-text v-if="['alert', 'confirm'].includes($type)" class="body-1 py-2" :class="{ 'pt-4': !getTitle }" v-html="getText" />
+      <v-card-text v-if="['prompt'].includes($type)" class="body-1 py-2" :class="{ 'pt-4': !getTitle }">
         <v-text-field ref="prompt" v-model="textValue" :rules="rules" :label="getText" v-bind="textField" />
       </v-card-text>
 
@@ -59,7 +59,7 @@ export default {
       reqiured: true
     },
     title: {
-      type: String
+      type: [String, Function],
     },
     actions: {
       type: Object
@@ -112,6 +112,9 @@ export default {
     },
     getText() {
       return typeof this.text === 'function' ? this.text() : this.text
+    },
+    getTitle() {
+      return typeof this.title === 'function' ? this.title() : this.title
     },
     confirmText() {
       return typeof this.actions.true.text === 'function' ? this.actions.true.text() : this.actions.true.text

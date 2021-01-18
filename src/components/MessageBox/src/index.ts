@@ -60,6 +60,10 @@ const MessageBox = (options: MessageBoxOption): Promise<boolean> => {
 }
 
 MessageBox.confirm = (text: string, title?: string | MessageBoxOption, options?: MessageBoxOption) => {
+  if (typeof options !== 'object') {
+    options = {}
+  }
+
   if (typeof title === 'object') {
     options = title
     title = options.title
@@ -89,6 +93,10 @@ MessageBox.confirm = (text: string, title?: string | MessageBoxOption, options?:
 }
 
 MessageBox.alert = (text: string, title?: string | MessageBoxOption, options?: MessageBoxOption) => {
+  if (typeof options !== 'object') {
+    options = {}
+  }
+
   if (typeof title === 'object') {
     options = title
     title = options.title
@@ -118,6 +126,10 @@ MessageBox.alert = (text: string, title?: string | MessageBoxOption, options?: M
 }
 
 MessageBox.prompt = (text: string, title?: string | MessageBoxOption, options?: MessageBoxOption) => {
+  if (typeof options !== 'object') {
+    options = {}
+  }
+
   if (typeof title === 'object') {
     options = title
     title = options.title
