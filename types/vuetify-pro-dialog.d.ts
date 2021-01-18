@@ -3,7 +3,9 @@ import Vue from 'vue'
 import { VuetifyProMessage, VuetifyProDialogMessage } from './message'
 import { VuetifyProMessageBox } from './message-box'
 
-export interface VuetifyProDialog extends VuetifyProDialogMessage, VuetifyProMessageBox {}
+export interface VuetifyProDialog extends VuetifyProDialogMessage, VuetifyProMessageBox {
+  changeRtl: (type: boolean) => void
+}
 
 export interface InstallationOptions {
   vuetify: any

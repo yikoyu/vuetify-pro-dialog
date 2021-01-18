@@ -48,7 +48,12 @@ const install = (Vue: VueConstructor, opts: any = {}) => {
     msgbox: msgbox,
     confirm: msgbox.confirm,
     alert: msgbox.alert,
-    prompt: msgbox.prompt
+    prompt: msgbox.prompt,
+    changeRtl: (type: boolean) => {
+      if (vuetify) {
+        vuetify.preset.rtl = type
+      }
+    }
   }
 }
 
