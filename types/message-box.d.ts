@@ -61,47 +61,35 @@ export interface VuetifyProMessageBoxPromptOptions extends VuetifyProMessageBoxP
 
 
 export interface VuetifyProMessageBoxAlert {
-  (text: string, title: string, options: VuetifyProMessageBoxAlertNoTitleOptions): Promise<boolean>
+  (text: string, title: string, options?: VuetifyProMessageBoxAlertNoTitleOptions): Promise<boolean>
 
-  (text: string, options: VuetifyProMessageBoxAlertOptions): Promise<boolean>
+  (text: string, options?: VuetifyProMessageBoxAlertOptions): Promise<boolean>
 }
 
 export interface VuetifyProMessageBoxConfirm {
-  (text: string, title: string, options: VuetifyProMessageBoxConfirmOptions): Promise<boolean>
+  (text: string, title: string, options?: VuetifyProMessageBoxConfirmOptions): Promise<boolean>
 
-  (text: string, options: VuetifyProMessageBoxConfirmNoTitleOptions): Promise<boolean>
+  (text: string, options?: VuetifyProMessageBoxConfirmNoTitleOptions): Promise<boolean>
 }
 
 export interface VuetifyProMessageBoxPrompt {
-  (text: string, title: string, options: VuetifyProMessageBoxPromptNoTitleOptions): Promise<boolean>
+  (text: string, title: string, options?: VuetifyProMessageBoxPromptNoTitleOptions): Promise<boolean>
 
-  (text: string, options: VuetifyProMessageBoxPromptOptions): Promise<boolean>
+  (text: string, options?: VuetifyProMessageBoxPromptOptions): Promise<boolean>
 }
 
 export interface VuetifyProMessageBox {
-  alert(text: string, title: string, options: VuetifyProMessageBoxAlertNoTitleOptions): Promise<boolean>
+  alert(text: string, title: string, options?: VuetifyProMessageBoxAlertNoTitleOptions): Promise<boolean>
 
-  alert(text: string, options: VuetifyProMessageBoxAlertOptions): Promise<boolean>
+  alert(text: string, options?: VuetifyProMessageBoxAlertOptions): Promise<boolean>
 
-  confirm(text: string, title: string, options: VuetifyProMessageBoxConfirmNoTitleOptions): Promise<boolean>
+  confirm(text: string, title: string, options?: VuetifyProMessageBoxConfirmNoTitleOptions): Promise<boolean>
 
-  confirm(text: string, options: VuetifyProMessageBoxConfirmOptions): Promise<boolean>
+  confirm(text: string, options?: VuetifyProMessageBoxConfirmOptions): Promise<boolean>
 
-  prompt(text: string, options: VuetifyProMessageBoxPromptOptions): Promise<boolean>
+  prompt(text: string, options?: VuetifyProMessageBoxPromptOptions): Promise<boolean>
 
-  prompt(text: string, title: string, options: VuetifyProMessageBoxPromptNoTitleOptions): Promise<boolean>
+  prompt(text: string, title: string, options?: VuetifyProMessageBoxPromptNoTitleOptions): Promise<boolean>
 
   closeAll(): void
-}
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    $msgBox: VuetifyProMessageBox
-
-    $alert: VuetifyProMessageBoxAlert
-
-    $confirm: VuetifyProMessageBoxConfirm
-
-    $prompt: VuetifyProMessageBoxPrompt
-  }
 }

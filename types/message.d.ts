@@ -58,15 +58,49 @@ export interface VuetifyProMessage {
 
   error(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
 
+  notify: {
+    (text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    success(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    warning(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+  
+    info(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+  
+    error(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+  }
+
   loading(text: string, options?: VuetifyProMessageLoadingOptions): VuetifyProMessageComponent
 
   closeAll(): void
 }
 
-declare module 'vue/types/vue' {
-  interface Vue {
-    $message: VuetifyProMessage
+export interface VuetifyProDialogMessage {
+  message: {
+    (text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
 
-    $loading: VuetifyProMessageLoading
+    success(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    warning(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    info(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    error(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
   }
+
+  notify: {
+    (text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    success(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    warning(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+  
+    info(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+  
+    error(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+  }
+
+  loading(text: string, options?: VuetifyProMessageLoadingOptions): VuetifyProMessageComponent
+
+  closeAll(): void
 }
