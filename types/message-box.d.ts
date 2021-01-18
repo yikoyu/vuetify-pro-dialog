@@ -59,26 +59,23 @@ export interface VuetifyProMessageBoxPromptOptions extends VuetifyProMessageBoxP
   title?: string
 }
 
-
-export interface VuetifyProMessageBoxAlert {
-  (text: string, title: string, options?: VuetifyProMessageBoxAlertNoTitleOptions): Promise<boolean>
-
-  (text: string, options?: VuetifyProMessageBoxAlertOptions): Promise<boolean>
-}
-
-export interface VuetifyProMessageBoxConfirm {
-  (text: string, title: string, options?: VuetifyProMessageBoxConfirmOptions): Promise<boolean>
-
-  (text: string, options?: VuetifyProMessageBoxConfirmNoTitleOptions): Promise<boolean>
-}
-
-export interface VuetifyProMessageBoxPrompt {
-  (text: string, title: string, options?: VuetifyProMessageBoxPromptNoTitleOptions): Promise<boolean>
-
-  (text: string, options?: VuetifyProMessageBoxPromptOptions): Promise<boolean>
-}
-
 export interface VuetifyProMessageBox {
+  msgbox: {
+    alert(text: string, title: string, options?: VuetifyProMessageBoxAlertNoTitleOptions): Promise<boolean>
+
+    alert(text: string, options?: VuetifyProMessageBoxAlertOptions): Promise<boolean>
+  
+    confirm(text: string, title: string, options?: VuetifyProMessageBoxConfirmNoTitleOptions): Promise<boolean>
+  
+    confirm(text: string, options?: VuetifyProMessageBoxConfirmOptions): Promise<boolean>
+  
+    prompt(text: string, options?: VuetifyProMessageBoxPromptOptions): Promise<boolean>
+  
+    prompt(text: string, title: string, options?: VuetifyProMessageBoxPromptNoTitleOptions): Promise<boolean>
+
+    closeAll(): void
+  }
+
   alert(text: string, title: string, options?: VuetifyProMessageBoxAlertNoTitleOptions): Promise<boolean>
 
   alert(text: string, options?: VuetifyProMessageBoxAlertOptions): Promise<boolean>
@@ -90,6 +87,4 @@ export interface VuetifyProMessageBox {
   prompt(text: string, options?: VuetifyProMessageBoxPromptOptions): Promise<boolean>
 
   prompt(text: string, title: string, options?: VuetifyProMessageBoxPromptNoTitleOptions): Promise<boolean>
-
-  closeAll(): void
 }

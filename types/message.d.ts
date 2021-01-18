@@ -43,9 +43,6 @@ export interface VuetifyProMessageLoadingOptions {
   onClose?: CloseEventHandler
 }
 
-export interface VuetifyProMessageLoading {
-  (text: string, options?: VuetifyProMessageLoadingOptions): VuetifyProMessageComponent
-}
 
 export interface VuetifyProMessage {
   (text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
@@ -86,6 +83,8 @@ export interface VuetifyProDialogMessage {
     info(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
 
     error(text: string, options?: VuetifyProMessageOptions): VuetifyProMessageComponent
+
+    closeAll(): void
   }
 
   notify: {
@@ -101,6 +100,4 @@ export interface VuetifyProDialogMessage {
   }
 
   loading(text: string, options?: VuetifyProMessageLoadingOptions): VuetifyProMessageComponent
-
-  closeAll(): void
 }
