@@ -19,8 +19,8 @@
 
       <v-card-actions>
         <v-spacer />
-        <v-btn text :color="actions.true.color" :loading="promptDisabled" @click="confirm">{{ confirmText }}</v-btn>
         <v-btn text :color="actions.false.color" @click="cancel" v-if="!['alert'].includes($type)">{{ cancelText }}</v-btn>
+        <v-btn text :color="actions.true.color" :loading="promptDisabled" @click="confirm">{{ confirmText }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
