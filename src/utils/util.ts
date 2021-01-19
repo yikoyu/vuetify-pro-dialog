@@ -16,3 +16,23 @@ export const deepCopy = (obj: any) => {
   }
   return target
 }
+
+/**
+ * 赋予值响应式能力
+ * @template T
+ * @param {T} value
+ * @return {*} 
+ */
+export function ref<T = any>(value: T): { value: T } {
+  const val = new Object()
+  return Object.defineProperty(val, 'value', {
+    get() {
+      return value
+    },
+    set(val: T) {
+      value = val
+    },
+    configurable: true,
+    enumerable: true
+  })
+}

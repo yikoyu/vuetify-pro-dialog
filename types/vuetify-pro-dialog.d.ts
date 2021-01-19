@@ -5,6 +5,8 @@ import { VuetifyProMessageBox } from './message-box'
 
 export interface VuetifyProDialog extends VuetifyProDialogMessage, VuetifyProMessageBox {
   changeRtl: (type: boolean) => void
+  setLocale: (locale: string) => void
+  setLocaleMessage: (locale: string, msg: { [x: string]: string }) => void
 }
 
 export interface InstallationOptions {
@@ -28,6 +30,14 @@ export interface InstallationOptions {
     width?: number
   }
 }
+
+export declare const zhCN: { [x: string]: string }
+
+export declare const enUS: { [x: string]: string }
+
+export declare function setLocale(locale: string): void
+
+export declare function setLocaleMessage(locale: string, msg: { [x: string]: string }): void
 
 export function install (vue: typeof Vue, options: InstallationOptions): void
 

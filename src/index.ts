@@ -3,20 +3,24 @@ import { VueConstructor } from 'vue'
 import CreateMessage from './components/Message/index';
 import CreateMessageBox from './components/MessageBox/index';
 
+import useLocales, { zhCN, enUS } from './locales'
+
+const { i18nRender, setLocale, setLocaleMessage } = useLocales()
+
 let options = {
   confirm: {
     false: {
-      text: '取消',
+      text: () => i18nRender('dialog.cancel.text'),
     },
     true: {
-      text: '确认',
+      text: () => i18nRender('dialog.ok.text'),
       color: 'primary'
     },
     width: 450
   },
   alert: {
     true: {
-      text: '确认',
+      text: () => i18nRender('dialog.ok.text'),
       color: 'primary'
     },
     width: 450
@@ -49,6 +53,8 @@ const install = (Vue: VueConstructor, opts: any = {}) => {
     confirm: msgbox.confirm,
     alert: msgbox.alert,
     prompt: msgbox.prompt,
+    setLocale: setLocale,
+    setLocaleMessage: setLocaleMessage,
     changeRtl: (type: boolean) => {
       if (vuetify) {
         vuetify.preset.rtl = type
@@ -65,6 +71,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 const Message = CreateMessage(vue, vuetify)
 const MessageBox = CreateMessageBox(vue, vuetify, options)
 
+export { zhCN, enUS, setLocale, setLocaleMessage }
 export {
   Message,
   MessageBox
