@@ -73,12 +73,12 @@ MessageBox.confirm = (text: string, title?: string | MessageBoxOption, options?:
 
   const actions = {
     false: {
-      text:  options?.actions?.false?.text || settings.confirm?.actions.false?.text,
-      color: options?.actions?.false?.color || settings.confirm?.actions.false?.color,
+      text:  options?.actions?.false?.text || settings.confirm?.false?.text,
+      color: options?.actions?.false?.color || settings.confirm?.false?.color,
     },
     true: {
-      text: options?.actions?.true?.text || settings.confirm?.actions.true?.text,
-      color: options?.actions?.true?.color || settings.confirm?.actions.true?.color,
+      text: options?.actions?.true?.text || settings.confirm?.true?.text,
+      color: options?.actions?.true?.color || settings.confirm?.true?.color,
     }
   }
 
@@ -106,12 +106,12 @@ MessageBox.alert = (text: string, title?: string | MessageBoxOption, options?: M
 
   const actions = {
     false: {
-      text:  options?.actions?.false?.text || settings.confirm?.actions.false?.text,
-      color: options?.actions?.false?.color || settings.confirm?.actions.false?.color,
+      text:  options?.actions?.false?.text || settings.confirm?.false?.text,
+      color: options?.actions?.false?.color || settings.confirm?.false?.color,
     },
     true: {
-      text: options?.actions?.true?.text || settings.confirm?.actions.true?.text,
-      color: options?.actions?.true?.color || settings.confirm?.actions.true?.color,
+      text: options?.actions?.true?.text || settings.confirm?.true?.text,
+      color: options?.actions?.true?.color || settings.confirm?.true?.color,
     }
   }
 
@@ -139,12 +139,12 @@ MessageBox.prompt = (text: string, title?: string | MessageBoxOption, options?: 
 
   const actions = {
     false: {
-      text:  options?.actions?.false?.text || settings.confirm?.actions.false?.text,
-      color: options?.actions?.false?.color || settings.confirm?.actions.false?.color,
+      text:  options?.actions?.false?.text || settings.confirm?.false?.text,
+      color: options?.actions?.false?.color || settings.confirm?.false?.color,
     },
     true: {
-      text: options?.actions?.true?.text || settings.confirm?.actions.true?.text,
-      color: options?.actions?.true?.color || settings.confirm?.actions.true?.color,
+      text: options?.actions?.true?.text || settings.confirm?.true?.text,
+      color: options?.actions?.true?.color || settings.confirm?.true?.color,
     }
   }
 
