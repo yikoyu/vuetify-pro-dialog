@@ -86,7 +86,7 @@ Message.warning('这是一段信息')
 Message.error('这是一段信息')
 ```
 
-### 更新message内容
+更新message内容
 ```typescript
 this.$dialog.message('这是一段信息', { key: 'test' })
 this.$dialog.message('这是第二段信息', { key: 'test' })
