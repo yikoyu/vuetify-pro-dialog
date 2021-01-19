@@ -42,10 +42,6 @@ export default {
       type: Number,
       default: 3000
     },
-    width: {
-      type: Number,
-      default: 256
-    },
     position: {
       type: String,
       default: 'top-right'
@@ -127,8 +123,7 @@ export default {
     },
     positionStyle() {
       return {
-        [`${this.top ? 'top' : 'bottom'}`]: `${this.verticalOffset}px`,
-        maxWidth: `${this.width}px`
+        [`${this.top ? 'top' : 'bottom'}`]: `${this.verticalOffset}px`
       }
     }
   },
