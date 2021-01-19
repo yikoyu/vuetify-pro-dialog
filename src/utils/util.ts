@@ -21,7 +21,7 @@ export const deepCopy = (obj: any) => {
  * 赋予值响应式能力
  * @template T
  * @param {T} value
- * @return {*} 
+ * @return {*}
  */
 export function ref<T = any>(value: T): { value: T } {
   const val = new Object()

@@ -16,7 +16,7 @@ const MessageBox = (options: MessageBoxOption): Promise<boolean> => {
     options = {}
   }
 
-  const Constructor = Vue.extend(component);
+  const Constructor = Vue.extend(component)
 
   instance = new Constructor({
     vuetify,
@@ -28,19 +28,19 @@ const MessageBox = (options: MessageBoxOption): Promise<boolean> => {
       VToolbar: Vue.extend(VToolbar),
       VToolbarTitle: Vue.extend(VToolbarTitle),
       VSpacer: Vue.extend(VSpacer),
-      VBtn: Vue.extend(VBtn),
+      VBtn: Vue.extend(VBtn)
       // VTextField: Vue.extend(VTextField),
       // VIcon: Vue.extend(VIcon),
     },
     propsData: {
-      ...options,
+      ...options
     }
   })
   instance.id = 'messagebox_' + seed++
   instance.isActive = true
   instances.push(instance)
 
-  const container = document.querySelector('[data-app=true]') || document.body;
+  const container = document.querySelector('[data-app=true]') || document.body
   container.appendChild(instance.$mount().$el)
 
   return new Promise(async (resolve, reject) => {
@@ -73,12 +73,12 @@ MessageBox.confirm = (text: string, title?: string | MessageBoxOption, options?:
 
   const actions = {
     false: {
-      text:  options?.actions?.false?.text || settings.confirm?.false?.text,
-      color: options?.actions?.false?.color || settings.confirm?.false?.color,
+      text: options?.actions?.false?.text || settings.confirm?.false?.text,
+      color: options?.actions?.false?.color || settings.confirm?.false?.color
     },
     true: {
       text: options?.actions?.true?.text || settings.confirm?.true?.text,
-      color: options?.actions?.true?.color || settings.confirm?.true?.color,
+      color: options?.actions?.true?.color || settings.confirm?.true?.color
     }
   }
 
@@ -106,12 +106,12 @@ MessageBox.alert = (text: string, title?: string | MessageBoxOption, options?: M
 
   const actions = {
     false: {
-      text:  options?.actions?.false?.text || settings.confirm?.false?.text,
-      color: options?.actions?.false?.color || settings.confirm?.false?.color,
+      text: options?.actions?.false?.text || settings.confirm?.false?.text,
+      color: options?.actions?.false?.color || settings.confirm?.false?.color
     },
     true: {
       text: options?.actions?.true?.text || settings.confirm?.true?.text,
-      color: options?.actions?.true?.color || settings.confirm?.true?.color,
+      color: options?.actions?.true?.color || settings.confirm?.true?.color
     }
   }
 
@@ -139,12 +139,12 @@ MessageBox.prompt = (text: string, title?: string | MessageBoxOption, options?: 
 
   const actions = {
     false: {
-      text:  options?.actions?.false?.text || settings.confirm?.false?.text,
-      color: options?.actions?.false?.color || settings.confirm?.false?.color,
+      text: options?.actions?.false?.text || settings.confirm?.false?.text,
+      color: options?.actions?.false?.color || settings.confirm?.false?.color
     },
     true: {
       text: options?.actions?.true?.text || settings.confirm?.true?.text,
-      color: options?.actions?.true?.color || settings.confirm?.true?.color,
+      color: options?.actions?.true?.color || settings.confirm?.true?.color
     }
   }
 

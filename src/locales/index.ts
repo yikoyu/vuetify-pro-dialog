@@ -34,7 +34,4 @@ export default function useLocales() {
     i18nRender
   }
 }
-export {
-  zhCN,
-  enUS
-}
+export { zhCN, enUS }

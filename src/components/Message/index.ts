@@ -1,3 +1,3 @@
 import Message from './src/index'
 
-export default Message;
+export default Message

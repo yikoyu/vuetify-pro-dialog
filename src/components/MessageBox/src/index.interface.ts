@@ -16,7 +16,7 @@ export interface MessageBoxOption {
       text: string | Function
       color?: string
     }
-  },
+  }
   width?: number
   persistent?: boolean
   scrollable?: boolean

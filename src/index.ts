@@ -1,7 +1,7 @@
 import { VueConstructor } from 'vue'
 
-import CreateMessage from './components/Message/index';
-import CreateMessageBox from './components/MessageBox/index';
+import CreateMessage from './components/Message/index'
+import CreateMessageBox from './components/MessageBox/index'
 
 import useLocales, { zhCN, enUS } from './locales'
 
@@ -10,7 +10,7 @@ const { i18nRender, setLocale, setLocaleMessage } = useLocales()
 let options = {
   confirm: {
     false: {
-      text: () => i18nRender('dialog.cancel.text'),
+      text: () => i18nRender('dialog.cancel.text')
     },
     true: {
       text: () => i18nRender('dialog.ok.text'),
@@ -24,7 +24,7 @@ let options = {
       color: 'primary'
     },
     width: 450
-  },
+  }
 }
 
 let vue
@@ -37,9 +37,9 @@ const install = (Vue: VueConstructor, opts: any = {}) => {
   delete opts.vuetify
   options = Object.assign({}, options, opts)
 
-  if(!vuetify) {
-    console.warn("The module VuetifyProDialog needs vuetify instance. Use Vue.use(VuetifyProDialog, { vuetify })");
-    return;
+  if (!vuetify) {
+    console.warn('The module VuetifyProDialog needs vuetify instance. Use Vue.use(VuetifyProDialog, { vuetify })')
+    return
   }
 
   const msg = CreateMessage(vue, vuetify)
@@ -65,15 +65,12 @@ const install = (Vue: VueConstructor, opts: any = {}) => {
 
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+  install(window.Vue)
 }
 
 const Message = CreateMessage(vue, vuetify)
 const MessageBox = CreateMessageBox(vue, vuetify, options)
 
 export { zhCN, enUS, setLocale, setLocaleMessage }
-export {
-  Message,
-  MessageBox
-}
+export { Message, MessageBox }
 export default install

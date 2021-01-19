@@ -59,7 +59,7 @@ export default {
       reqiured: true
     },
     title: {
-      type: [String, Function],
+      type: [String, Function]
     },
     actions: {
       type: Object

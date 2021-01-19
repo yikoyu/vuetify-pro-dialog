@@ -12,7 +12,7 @@ let instances: any[] = [] // 目前的message列表
 let seed = 1 // 序号
 
 function createTypeMessage() {
-  ['success', 'warning', 'info', 'error'].forEach(type => {
+  ;['success', 'warning', 'info', 'error'].forEach(type => {
     Message[type] = (text: string, options?: MessageOption) => {
       if (typeof options !== 'object') {
         options = {}
@@ -25,12 +25,12 @@ function createTypeMessage() {
 }
 
 function createTypeNotify() {
-  ['success', 'warning', 'info', 'error'].forEach(type => {
+  ;['success', 'warning', 'info', 'error'].forEach(type => {
     Message['notify'][type] = (text: string, options?: MessageOption) => {
       if (typeof options !== 'object') {
         options = {}
       }
-    
+
       options.type = type as MessageType
       return Message.notify(text, options)
     }
@@ -42,7 +42,7 @@ const Message = (text: string, options?: MessageOption) => {
   if (typeof options !== 'object') {
     options = {}
   }
-  
+
   if (options?.type === 'loading') {
     options.type = 'loading'
     options.showIcon = options.showIcon || true
@@ -60,7 +60,7 @@ const Message = (text: string, options?: MessageOption) => {
   }
 
   // 将component主键绑定在传入的Vue上，否则$vuetify会无法获取，下面的VSnackbar也是一样
-  const Constructor = Vue.extend(component);
+  const Constructor = Vue.extend(component)
 
   instance = new Constructor({
     vuetify,
@@ -72,7 +72,7 @@ const Message = (text: string, options?: MessageOption) => {
     },
     propsData: {
       text: text,
-      ...options,
+      ...options
     }
   })
 
@@ -90,7 +90,7 @@ const Message = (text: string, options?: MessageOption) => {
   instance.id = id
   instance.key = options.key
 
-  const container = document.querySelector('[data-app=true]') || document.body;
+  const container = document.querySelector('[data-app=true]') || document.body
   container.appendChild(instance.$mount().$el)
 
   let verticalOffset = 0
