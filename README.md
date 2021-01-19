@@ -12,7 +12,7 @@ npm i vuetify-pro-dialog -S
 import VuetifyProDialog from 'vuetify-pro-dialog'
 import 'vuetify-pro-dialog/dist/vuetify-pro-dialog.min.css'
 
-// 额外配置，可选
+// 额外配置，可选，text也可使用国际化函数
 const actions = {
   confirm: {
     actions: {
@@ -52,6 +52,18 @@ Vue.use(Vuetify, {
 })
 ```
 
+## i18n国际化
+```typescript
+import { setLocale, setLocaleMessage } from 'vuetify-pro-dialog'
+
+setLocaleMessage('en', {
+  'dialog.cancel.text': 'cancel',
+  'dialog.ok.text': 'ok'
+})
+
+setLocale('en_US')
+```
+PS: 国际化默认zh_CN和en_US两种，如需添加请属使用setLocaleMessage函数
 
 ## 使用
 
