@@ -16,7 +16,9 @@
   "files": [
     "dist",
     "types",
-    "package.json"
+    "package.json",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -24,7 +26,9 @@
     "build:umd": "rollup --config rollup.config.js --format umd --file dist/vuetify-pro-dialog.umd.js",
     "build:es": "rollup --config rollup.config.js --format es --file dist/vuetify-pro-dialog.esm.js",
     "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vuetify-pro-dialog.min.js",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:nofix": "vue-cli-service lint --no-fix",
+    "push": "npm run build && npm publish --registry http://registry.npmjs.org"
   },
   "keywords": [
     "vue",
@@ -41,8 +45,8 @@
     "@rollup/plugin-image": "^2.0.6",
     "@rollup/plugin-typescript": "^8.1.0",
     "@types/core-js": "^2.5.4",
-    "@typescript-eslint/eslint-plugin": "^2.33.0",
-    "@typescript-eslint/parser": "^2.33.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",

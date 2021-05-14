@@ -1,0 +1,4 @@
+dist
+node_modules
+vue.config.js
+commitlint.config.js
