@@ -10,7 +10,8 @@ const { i18nRender, setLocale, setLocaleMessage } = useLocales()
 let options = {
   confirm: {
     false: {
-      text: () => i18nRender('dialog.cancel.text')
+      text: () => i18nRender('dialog.cancel.text'),
+      color: 'error'
     },
     true: {
       text: () => i18nRender('dialog.ok.text'),
