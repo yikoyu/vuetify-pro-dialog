@@ -7,7 +7,7 @@ import { MessageBoxOption } from './index.interface'
 let Vue: VueConstructor // 定义传入vue
 let settings // 默认按钮
 let vuetify // 定义传入vuetify
-let instance //定义当前实例
+let instance // 定义当前实例
 let instances: any[] = []
 let seed = 1 // 序号
 
@@ -43,6 +43,7 @@ const MessageBox = (options: MessageBoxOption): Promise<boolean> => {
   const container = document.querySelector('[data-app=true]') || document.body
   container.appendChild(instance.$mount().$el)
 
+  /* eslint-disable no-async-promise-executor */
   return new Promise(async (resolve, reject) => {
     const item = instances.find(k => k.id === instance.id)
     item.handleAction = async (key: 'confirm' | 'cancel') => {

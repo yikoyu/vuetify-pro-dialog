@@ -9,18 +9,18 @@ export interface MessageBoxOption {
   showIcon?: boolean
   actions?: {
     false?: {
-      text: string | Function
+      text: string | (() => string)
       color?: string
     }
     true?: {
-      text: string | Function
+      text: string | (() => string)
       color?: string
     }
   }
   width?: number
   persistent?: boolean
   scrollable?: boolean
-  rules?: Function[]
+  rules?: any[]
   beforeClose?: Promise<boolean>
   textField?: { [x: string]: any }
 }

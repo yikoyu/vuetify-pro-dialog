@@ -6,6 +6,7 @@
 export const deepCopy = (obj: any) => {
   const target: any = Array.isArray(obj) ? [] : {}
   for (const key in obj) {
+    /* eslint-disable no-prototype-builtins */
     if (obj.hasOwnProperty(key)) {
       if (typeof obj[key] === 'object' && obj[key] !== null) {
         target[key] = deepCopy(obj[key])

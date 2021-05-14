@@ -7,8 +7,8 @@ import { MessageOption, MessageType } from './index.interface'
 const messageHeight = 45
 let Vue: VueConstructor // 定义传入vue
 let vuetify // 定义传入vuetify
-let instance //定义当前实例
-let instances: any[] = [] // 目前的message列表
+let instance // 定义当前实例
+const instances: any[] = [] // 目前的message列表
 let seed = 1 // 序号
 
 function createTypeMessage() {
@@ -52,7 +52,7 @@ const Message = (text: string, options?: MessageOption) => {
   }
 
   const userOnClose = options.onClose // 提取自定义onClose函数
-  let id = 'message_' + seed++
+  const id = 'message_' + seed++
 
   // 修改定义onClose方法
   options.onClose = function() {
@@ -132,7 +132,7 @@ Message.notify = (text: string, options?: MessageOption) => {
 }
 
 Message.close = (id, userOnClose) => {
-  let len = instances.length
+  const len = instances.length
   let index = -1
   let removedHeight
   for (let i = 0; i < len; i++) {
@@ -148,7 +148,7 @@ Message.close = (id, userOnClose) => {
   }
   if (len <= 1 || index === -1 || index > instances.length - 1) return
   for (let i = index; i < len - 1; i++) {
-    let dom = instances[i].$el
+    const dom = instances[i].$el
     const xTop = instances[i].top ? 'top' : 'bottom'
     dom.style[xTop] = parseInt(dom.style[xTop]) - removedHeight - 16 + 'px'
   }

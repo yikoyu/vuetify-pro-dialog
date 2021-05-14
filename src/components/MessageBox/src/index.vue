@@ -135,13 +135,13 @@ export default {
       !this.persistent && !this.disabled && this.handleAction(t)
     },
 
-    /**点击关闭按钮 */
+    /** 点击关闭按钮 */
     dialogClose() {
       const t = !['alert'].includes(this.$type) ? 'cancel' : 'confirm'
       !this.disabled && this.handleAction(t)
     },
 
-    /**点击确认按钮 */
+    /** 点击确认按钮 */
     async confirm() {
       if (this.disabled) return
 
@@ -163,7 +163,7 @@ export default {
       this.handleAction('confirm')
     },
 
-    /**点击取消按钮 */
+    /** 点击取消按钮 */
     cancel() {
       !this.disabled && this.handleAction('cancel')
     },
