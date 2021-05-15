@@ -2,7 +2,7 @@ import component from './index.vue'
 import { VDialog, VCard, VCardText, VCardActions, VToolbar, VToolbarTitle, VSpacer, VBtn, VTextField, VIcon } from 'vuetify/lib'
 
 import { VueConstructor } from 'vue'
-import { MessageBoxOption } from './index.interface'
+import { MessageBoxOption } from 'types/message-box'
 
 let Vue: VueConstructor // 定义传入vue
 let settings // 默认按钮

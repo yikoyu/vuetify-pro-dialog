@@ -2,7 +2,7 @@ import component from './index.vue'
 import { VSnackbar, VBtn, VIcon, VProgressCircular } from 'vuetify/lib'
 
 import { VueConstructor } from 'vue'
-import { MessageOption, MessageType } from './index.interface'
+import { VuetifyProMessageOptions, MessageType } from 'types/message'
 
 const messageHeight = 45
 let Vue: VueConstructor // 定义传入vue
@@ -13,7 +13,7 @@ let seed = 1 // 序号
 
 function createTypeMessage() {
   ;['success', 'warning', 'info', 'error'].forEach(type => {
-    Message[type] = (text: string, options?: MessageOption) => {
+    Message[type] = (text: string, options?: VuetifyProMessageOptions) => {
       if (typeof options !== 'object') {
         options = {}
       }
@@ -26,7 +26,7 @@ function createTypeMessage() {
 
 function createTypeNotify() {
   ;['success', 'warning', 'info', 'error'].forEach(type => {
-    Message['notify'][type] = (text: string, options?: MessageOption) => {
+    Message['notify'][type] = (text: string, options?: VuetifyProMessageOptions) => {
       if (typeof options !== 'object') {
         options = {}
       }
@@ -37,7 +37,7 @@ function createTypeNotify() {
   })
 }
 
-const Message = (text: string, options?: MessageOption) => {
+const Message = (text: string, options?: VuetifyProMessageOptions) => {
   // 如果·options不是object则options为空
   if (typeof options !== 'object') {
     options = {}
@@ -104,7 +104,7 @@ const Message = (text: string, options?: MessageOption) => {
   return instance
 }
 
-Message.loading = (text: string, options?: MessageOption) => {
+Message.loading = (text: string, options?: VuetifyProMessageOptions) => {
   if (typeof options !== 'object') {
     options = {}
   }
@@ -118,7 +118,7 @@ Message.loading = (text: string, options?: MessageOption) => {
   return Message(text, options)
 }
 
-Message.notify = (text: string, options?: MessageOption) => {
+Message.notify = (text: string, options?: VuetifyProMessageOptions) => {
   if (typeof options !== 'object') {
     options = {}
   }

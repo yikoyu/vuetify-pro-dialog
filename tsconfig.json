@@ -20,6 +20,9 @@
     "paths": {
       "@/*": [
         "examples/*"
+      ],
+      "vuetify-pro-dialog/*": [
+        "src/*"
       ]
     },
     "lib": [
