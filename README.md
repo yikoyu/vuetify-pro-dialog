@@ -10,14 +10,14 @@ npm i vuetify-pro-dialog -S
 
 ```typescript
 import VuetifyProDialog from 'vuetify-pro-dialog'
-import 'vuetify-pro-dialog/dist/vuetify-pro-dialog.min.css'
 
 // 额外配置，可选，text也可使用国际化函数
 const actions = {
   confirm: {
     actions: {
       false: {
-        text: () => i18nRender('dialog.actions.cancel')
+        text: () => i18nRender('dialog.actions.cancel'),
+        color: 'error'
       },
       true: {
         text: () => i18nRender('dialog.actions.ok'),
