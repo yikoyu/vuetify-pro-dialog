@@ -1,11 +1,10 @@
 <template>
-  <transition name="pro-message-fade" @after-leave="handleAfterLeave">
+  <message-transition :position="position">
     <v-snackbar
       :value="true"
       v-show="isActive"
       :timeout="-1"
       :color="getColor"
-      :class="['pro-message', top && 'top', left && ($vuetify.rtl ? 'right' : 'left'), right && ($vuetify.rtl ? 'left' : 'right'), bottom && bottom]"
       :top="top"
       :left="left"
       :right="right"
@@ -31,12 +30,14 @@
         </v-btn>
       </template>
     </v-snackbar>
-  </transition>
+  </message-transition>
 </template>
 
 <script>
+import MessageTransition from '../../MessageTransition/index.vue'
 export default {
   name: 'VuetifyProMessage',
+  components: { MessageTransition },
   props: {
     timeout: {
       type: Number,
@@ -138,11 +139,6 @@ export default {
     }
   },
   methods: {
-    handleAfterLeave() {
-      this.$destroy()
-      this.$el.parentNode.removeChild(this.$el)
-    },
-
     close() {
       this.isActive = false
     },
@@ -164,34 +160,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.pro-message {
-  transition: opacity 0.3s, transform 0.4s, left 0.3s, right 0.3s, top 0.4s, bottom 0.3s;
-}
-
-.pro-message-fade {
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-  }
-
-  &-enter {
-    &[class~='right'] {
-      transform: translateX(50%);
-    }
-    &[class~='left'] {
-      transform: translateX(-50%);
-    }
-  }
-
-  &-leave-to {
-    &[class~='top'] {
-      transform: translateY(-50%);
-    }
-    &[class~='bottom'] {
-      transform: translateY(50%);
-    }
-  }
-}
-</style>
