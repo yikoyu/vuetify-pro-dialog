@@ -4,6 +4,7 @@ specifiers:
   '@commitlint/cli': ^15.0.0
   '@commitlint/config-conventional': ^15.0.0
   '@commitlint/cz-commitlint': ^15.0.0
+  '@types/lodash.merge': ^4.6.6
   '@types/node': ^16.11.8
   '@typescript-eslint/eslint-plugin': ^5.4.0
   '@typescript-eslint/parser': ^5.4.0
@@ -19,6 +20,7 @@ specifiers:
   eslint-plugin-vue: ^8.1.1
   husky: 4.2.5
   lint-staged: ^12.1.0
+  lodash.merge: ^4.6.2
   prettier: ^2.4.1
   sass: 1.32.13
   typescript: ^4.4.3
@@ -34,6 +36,7 @@ specifiers:
 
 dependencies:
   '@vue/composition-api': 1.4.0_vue@2.6.14
+  lodash.merge: 4.6.2
   vue: 2.6.14
   vuetify: 2.6.0_vue@2.6.14
 
@@ -41,6 +44,7 @@ devDependencies:
   '@commitlint/cli': 15.0.0
   '@commitlint/config-conventional': 15.0.0
   '@commitlint/cz-commitlint': 15.0.0_commitizen@4.2.4
+  '@types/lodash.merge': 4.6.6
   '@types/node': 16.11.8
   '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
   '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
@@ -681,6 +685,16 @@ packages:
 
   /@types/json-schema/7.0.9:
     resolution: {integrity: sha1-l+3JA36gw4WFMgsolk3eOznkZg0=, tarball: '@types/json-schema/download/@types/json-schema-7.0.9.tgz'}
+    dev: true
+
+  /@types/lodash.merge/4.6.6:
+    resolution: {integrity: sha1-uEtAPB0xvELVF3LRzVVX+gCM09Y=, tarball: '@types/lodash.merge/download/@types/lodash.merge-4.6.6.tgz'}
+    dependencies:
+      '@types/lodash': 4.14.177
+    dev: true
+
+  /@types/lodash/4.14.177:
+    resolution: {integrity: sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==, tarball: '@types/lodash/download/@types/lodash-4.14.177.tgz'}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -3478,7 +3492,6 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=, tarball: lodash.merge/download/lodash.merge-4.6.2.tgz}
-    dev: true
 
   /lodash.truncate/4.4.2:
     resolution: {integrity: sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=, tarball: lodash.truncate/download/lodash.truncate-4.4.2.tgz}

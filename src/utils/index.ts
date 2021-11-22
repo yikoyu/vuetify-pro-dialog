@@ -1,4 +1,5 @@
 import Vuetify, { VuetifyPreset } from 'vuetify'
+import merge from 'lodash.merge'
 
 let vuetifyInstance: Vuetify
 export function getVuetifyInstance(instance?: Vuetify, preset?: VuetifyPreset) {
@@ -19,3 +20,5 @@ export function setVuetifyInstance(instance: Vuetify) {
   vuetifyInstance = instance
   return true
 }
+
+export { merge }
