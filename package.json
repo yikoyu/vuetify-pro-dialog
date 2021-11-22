@@ -34,9 +34,18 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "lint": "eslint {src,examples}/**/*.{js,ts,tsx,vue}",
-    "lint:fix": "eslint {src,examples}/**/*.{js,ts,tsx,vue} --fix"
+    "lint:fix": "eslint {src,examples}/**/*.{js,ts,tsx,vue} --fix",
+    "git-commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@commitlint/cz-commitlint": "^15.0.0",
     "@types/node": "^16.11.8",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
@@ -44,10 +53,13 @@
     "@vue/compiler-sfc": "^3.2.22",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
+    "commitizen": "^4.2.4",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.1.1",
+    "husky": "4.2.5",
+    "lint-staged": "^12.1.0",
     "prettier": "^2.4.1",
     "sass": "1.32.13",
     "typescript": "^4.4.3",
