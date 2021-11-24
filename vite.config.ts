@@ -14,8 +14,8 @@ export default defineConfig({
     createVuePlugin({
       jsx: true,
       jsxOptions: {
-        vModel: true,
-        compositionAPI: true
+        vModel: false,
+        compositionAPI: false
       }
     }),
     Components({
@@ -39,7 +39,6 @@ export default defineConfig({
     }
   },
   build: {
-    minify: true,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'VuetifyProDialog'

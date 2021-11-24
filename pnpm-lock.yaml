@@ -9,6 +9,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.4.0
   '@typescript-eslint/parser': ^5.4.0
   '@vitejs/plugin-vue': ^1.9.3
+  '@vue/babel-helper-vue-jsx-merge-props': ^1.2.1
   '@vue/compiler-sfc': ^3.2.22
   '@vue/composition-api': ^1.4.0
   '@vue/eslint-config-prettier': ^6.0.0
@@ -49,6 +50,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
   '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
   '@vitejs/plugin-vue': 1.9.4_vite@2.6.14
+  '@vue/babel-helper-vue-jsx-merge-props': 1.2.1
   '@vue/compiler-sfc': 3.2.22
   '@vue/eslint-config-prettier': 6.0.0_5ef9ff6669b626527300390dc84546fb
   '@vue/eslint-config-typescript': 9.1.0_fd7a4015d7491788152df517c2466191
