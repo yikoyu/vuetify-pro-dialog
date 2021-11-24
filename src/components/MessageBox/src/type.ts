@@ -29,6 +29,7 @@ export interface MessageBoxOptions {
   color: string
   text: string | (() => string)
   title: string | (() => string) | false
+  contentClass: string
   actions: Partial<MessageBoxActions>
   icon: string | boolean
   showClose: boolean

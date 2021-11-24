@@ -12,8 +12,8 @@
         </v-btn>
       </v-toolbar>
 
-      <v-card-text v-if="['alert', 'confirm'].includes($type)" class="body-1 py-2 text-start" :class="{ 'pt-4': !getTitle }" v-html="getText" />
-      <v-card-text v-if="['prompt'].includes($type)" class="body-1 py-2 text-start" :class="{ 'pt-4': !getTitle }">
+      <v-card-text v-if="['alert', 'confirm'].includes($type)" class="body-1 py-2" :class="[{ 'pt-4': !getTitle }, contentClass]" v-html="getText" />
+      <v-card-text v-if="['prompt'].includes($type)" class="body-1 py-2" :class="[{ 'pt-4': !getTitle }, contentClass]">
         <v-text-field ref="prompt" v-model="textValue" :rules="rules" :label="getText" v-bind="textFieldProps" />
       </v-card-text>
 
@@ -62,6 +62,10 @@ export const defaultMessageBoxProps = {
   title: {
     type: [String, Function] as PropType<MessageBoxProps['text']>,
     default: '提示'
+  },
+  contentClass: {
+    type: String,
+    default: ''
   },
   actions: {
     type: Object as PropType<MessageBoxProps['actions']>

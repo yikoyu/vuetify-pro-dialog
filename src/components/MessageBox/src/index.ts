@@ -6,6 +6,9 @@ import type { MessageBoxComponent, MessageBoxProps, MessageBoxOptions, Installat
 
 type Settings = Pick<InstallationMessageOptions, 'alert' | 'confirm' | 'prompt'>
 
+type OTextOpt = Partial<Omit<MessageBoxOptions, 'text'>>
+type OTitleTextOpt = Partial<Omit<MessageBoxOptions, 'text' | 'title'>>
+
 export class MessageBoxComp {
   private settings: Settings
   private seed: number = 1
@@ -59,45 +62,42 @@ export class MessageBoxComp {
     })
   }
 
-  private createMessageBox(
-    type: MessageBoxProps['$type'],
-    text: string,
-    title?: string | Partial<MessageBoxOptions>,
-    options?: Partial<MessageBoxOptions>
-  ): Promise<boolean> {
-    if (typeof options !== 'object') {
-      options = {}
+  private createMessageBox(type: MessageBoxProps['$type'], text: string, title?: string | OTextOpt, options?: OTitleTextOpt): Promise<boolean> {
+    let config: Partial<MessageBoxProps> = options || {}
+
+    if (typeof config !== 'object') {
+      config = {}
     }
 
     if (typeof title === 'object') {
-      options = title
+      config = title
     }
 
     return this.open({
-      ...options,
-      actions: merge({}, this.settings[type], options.actions),
-      width: options?.width || this.settings?.[type]?.width,
-      title: typeof options.title === 'function' ? options.title() : options.title,
+      ...config,
+      actions: merge({}, this.settings[type], config.actions),
+      width: config?.width || this.settings?.[type]?.width,
+      title: typeof config.title === 'function' ? config.title() : config.title,
       text,
       $type: type
     })
   }
 
-  public alert(text: string, title?: Partial<MessageBoxOptions>): Promise<boolean>
-  public alert(text: string, title?: string, options?: Partial<MessageBoxOptions>): Promise<boolean>
-  public alert(text: string, title?: string | Partial<MessageBoxOptions>, options?: Partial<MessageBoxOptions>): Promise<boolean> {
+  public alert(text: string, title?: OTextOpt): Promise<boolean>
+  public alert(text: string, title?: string, options?: OTitleTextOpt): Promise<boolean>
+  public alert(text: string, title?: string | OTextOpt, options?: OTitleTextOpt): Promise<boolean> {
     return this.createMessageBox('alert', text, title, options)
   }
 
-  public confirm(text: string, title?: Partial<MessageBoxOptions>): Promise<boolean>
-  public confirm(text: string, title?: string, options?: Partial<MessageBoxOptions>): Promise<boolean>
-  public confirm(text: string, title?: string | Partial<MessageBoxOptions>, options?: Partial<MessageBoxOptions>): Promise<boolean> {
+  public confirm(text: string, title?: OTextOpt): Promise<boolean>
+  public confirm(text: string, title?: string, options?: OTitleTextOpt): Promise<boolean>
+  public confirm(text: string, title?: string | OTextOpt, options?: OTitleTextOpt): Promise<boolean> {
     return this.createMessageBox('confirm', text, title, options)
   }
 
-  public prompt(text: string, title?: Partial<MessageBoxOptions>): Promise<boolean>
-  public prompt(text: string, title?: string, options?: Partial<MessageBoxOptions>): Promise<boolean>
-  public prompt(text: string, title?: string | Partial<MessageBoxOptions>, options?: Partial<MessageBoxOptions>): Promise<boolean> {
+  public prompt(text: string, title?: OTextOpt): Promise<boolean>
+  public prompt(text: string, title?: string, options?: OTitleTextOpt): Promise<boolean>
+  public prompt(text: string, title?: string | OTextOpt, options?: OTitleTextOpt): Promise<boolean> {
     return this.createMessageBox('prompt', text, title, options)
   }
 
