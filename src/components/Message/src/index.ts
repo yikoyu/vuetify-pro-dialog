@@ -4,13 +4,37 @@ import { getVuetifyInstance } from '@/utils'
 
 import type { MessageComponent, MessageOptions, MessageType } from './type'
 
+type OTextOpt = Partial<Omit<MessageOptions, 'text'>>
+type OTextTypeOpt = Partial<Omit<MessageOptions, 'type' | 'text'>>
+
+interface NoTypeOpen {
+  (text: Partial<MessageOptions>): MessageComponent
+  (text: string, options?: OTextOpt): MessageComponent
+}
+
+interface TypeOpen {
+  (text: Partial<Omit<MessageOptions, 'type'>>): MessageComponent
+  (text: string, options?: OTextTypeOpt): MessageComponent
+}
+
+interface Notify {
+  open: NoTypeOpen
+  success: TypeOpen
+  warning: TypeOpen
+  info: TypeOpen
+  error: TypeOpen
+}
+
 export class MessageComp {
-  private messageHeight: number = 45
   private seed: number = 1
   private instance: MessageComponent | undefined
   private instances: MessageComponent[] = []
 
-  public open(text: string, options?: MessageOptions): MessageComponent {
+  private messageHeight(isNotify: boolean = false) {
+    return isNotify ? 90 : 48
+  }
+
+  public open(text: string, options?: OTextOpt): MessageComponent {
     // 如果·options不是object则options为空
     if (typeof options !== 'object') {
       options = {}
@@ -20,7 +44,7 @@ export class MessageComp {
       options.type = 'loading'
       options.showIcon = options.showIcon || true
       options.position = options.position || 'top'
-      options.showClose = options.showClose || false
+      options.action = options.action || false
       options.timeout = options.timeout || -1
     } else {
       if (!options.timeout) options.timeout = 5000
@@ -46,7 +70,7 @@ export class MessageComp {
     // 如果有key则改为更新
     if (options.key) {
       for (let i = 0, len = this.instances.length; i < len; i++) {
-        if (this.instances[i].key !== options.key) break
+        if (this.instances[i].key !== options.key) continue
 
         this.instances[i].type = options.type
         this.instances[i].timeout = options.timeout
@@ -64,7 +88,9 @@ export class MessageComp {
       return false
     })
 
-    const verticalOffset = positionInstances.length * (this.messageHeight + 16)
+    const verticalOffset = positionInstances
+      .map(instance => ((instance.$el.lastChild as Element)?.clientHeight || this.messageHeight(instance.vertical)) + 16)
+      .reduce((acc: number, cur: number) => acc + cur, 0)
 
     this.instance.id = id
     this.instance.key = options.key
@@ -84,7 +110,7 @@ export class MessageComp {
 
     this.instances = this.instances.filter((instance, i) => {
       if (id !== instance.id) return true
-      removedHeight = this.messageHeight
+      removedHeight = (instance.$el.lastChild as Element)?.clientHeight || this.messageHeight(instance.vertical)
       index = i
       if (typeof userOnClose === 'function') {
         userOnClose(this.instances[i])
@@ -108,32 +134,35 @@ export class MessageComp {
     this.instances.forEach(instance => instance.close())
   }
 
-  private createTypeMessage(type: MessageType, text: string, options?: MessageOptions) {
+  private createTypeMessage(type: MessageType, text: string, options?: Partial<MessageOptions>) {
     if (typeof options !== 'object') options = {}
 
     options.type = type
     return this.open(text, options)
   }
 
-  private createTypeNotify(type: MessageType, text: string, options?: MessageOptions) {
-    if (typeof options !== 'object') options = {}
-
-    options.type = type
-    return this.notify.open(text, options)
+  private createTypeNotify(type: MessageType, text: string | Partial<MessageOptions>, options?: Partial<MessageOptions>) {
+    const settings: Partial<MessageOptions> = {
+      type,
+      text: typeof text === 'string' ? text : undefined,
+      ...(typeof text === 'object' ? text : undefined),
+      ...options
+    }
+    return this.notify.open(settings)
   }
 
-  public success = (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeMessage('success', text, options)
-  public warning = (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeMessage('warning', text, options)
-  public info = (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeMessage('info', text, options)
-  public error = (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeMessage('error', text, options)
-  public loading = (text: string, options?: Omit<MessageOptions, 'type'>) => {
+  public success = (text: string, options?: OTextTypeOpt) => this.createTypeMessage('success', text, options)
+  public warning = (text: string, options?: OTextTypeOpt) => this.createTypeMessage('warning', text, options)
+  public info = (text: string, options?: OTextTypeOpt) => this.createTypeMessage('info', text, options)
+  public error = (text: string, options?: OTextTypeOpt) => this.createTypeMessage('error', text, options)
+  public loading = (text: string, options?: OTextTypeOpt) => {
     if (typeof options !== 'object') {
       options = {}
     }
 
     options.showIcon = options.showIcon || true
     options.position = options.position || 'top'
-    options.showClose = options.showClose || false
+    options.action = options.action || false
     options.timeout = options.timeout || -1
 
     return this.open(text, {
@@ -142,23 +171,32 @@ export class MessageComp {
     })
   }
 
-  public notify = {
-    open: (text: string, options?: MessageOptions) => {
-      if (typeof options !== 'object') {
-        options = {}
+  public notify: Notify = {
+    open: (text: string | Partial<MessageOptions>, options?: OTextOpt) => {
+      let config: Partial<MessageOptions> = { ...options }
+
+      if (typeof config !== 'object') {
+        config = {}
       }
 
-      options.showIcon = options.showIcon || true
-      options.position = options.position || 'top-right'
-      options.showClose = options.showClose || true
-      options.timeout = options.timeout || 5000
+      if (typeof text === 'object') {
+        config = { ...text }
+      }
 
-      return this.open(text, options)
+      config.vertical = config.vertical || true
+      config.showIcon = config.showIcon || true
+      config.position = config.position || 'top-right'
+      config.action = config.action || true
+      config.timeout = config.timeout || 5000
+
+      const content = typeof text === 'object' ? config.text : text
+
+      return this.open(content as string, config)
     },
-    success: (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeNotify('success', text, options),
-    warning: (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeNotify('warning', text, options),
-    info: (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeNotify('info', text, options),
-    error: (text: string, options?: Omit<MessageOptions, 'type'>) => this.createTypeNotify('error', text, options)
+    success: (text: string | Partial<MessageOptions>, options?: OTextTypeOpt) => this.createTypeNotify('success', text, options),
+    warning: (text: string | Partial<MessageOptions>, options?: OTextTypeOpt) => this.createTypeNotify('warning', text, options),
+    info: (text: string | Partial<MessageOptions>, options?: OTextTypeOpt) => this.createTypeNotify('info', text, options),
+    error: (text: string | Partial<MessageOptions>, options?: OTextTypeOpt) => this.createTypeNotify('error', text, options)
   }
 }
 

@@ -1,42 +1,8 @@
-<template>
-  <message-transition :position="position">
-    <v-snackbar
-      :value="true"
-      v-show="isActive"
-      :timeout="-1"
-      :color="getColor"
-      :top="top"
-      :left="left"
-      :right="right"
-      :bottom="bottom"
-      :multi-line="multiLine"
-      :vertical="vertical"
-      :elevation="elevation"
-      :text="flat"
-      :centered="centered"
-      :rounded="rounded"
-      :outlined="outlined"
-      :shaped="shaped"
-      :transition="false"
-      :style="positionStyle"
-    >
-      <v-icon v-if="type && type !== 'loading' && showIcon" size="14" v-bind="[{ [`${$vuetify.rtl ? 'right' : 'left'}`]: true }]">{{ '$' + type }}</v-icon>
-      <v-progress-circular v-if="type === 'loading'" size="14" width="2" indeterminate color="primary" class="mr-1"></v-progress-circular>
-      {{ getText }}
-
-      <template v-if="showClose" v-slot:action="{ attrs }">
-        <v-btn v-bind="[{ [`${$vuetify.rtl ? 'left' : 'right'}`]: true }, attrs]" icon @click="isActive = false">
-          <v-icon>$close</v-icon>
-        </v-btn>
-      </template>
-    </v-snackbar>
-  </message-transition>
-</template>
-
-<script lang="ts">
-import Vue, { PropType } from 'vue'
+<script lang="tsx">
+import Vue, { PropType, VNodeChildren, VNode } from 'vue'
+import { VSnackbar, VBtn, VIcon, VProgressCircular } from 'vuetify/lib'
 import MessageTransition from '@/components/MessageTransition/index.vue'
-import { MessageProps } from './type'
+import type { MessageProps } from './type'
 
 export const defaultMessageProps = {
   timeout: {
@@ -93,19 +59,18 @@ export const defaultMessageProps = {
   onClose: {
     type: Function as PropType<MessageProps['onClose']>
   },
-  showClose: {
+  showIcon: {
     type: Boolean,
     default: false
   },
-  showIcon: {
-    type: Boolean,
+  action: {
+    type: [Function, Boolean] as PropType<MessageProps['action']>,
     default: false
   }
 }
 
 export default Vue.extend({
   name: 'VuetifyProMessage',
-  components: { MessageTransition },
   props: { ...defaultMessageProps },
   data() {
     return {
@@ -124,7 +89,7 @@ export default Vue.extend({
       if (this.type === 'loading') return this.color
       return this.color || this.type
     },
-    getText(): string | undefined {
+    getText(): string | VNode | VNodeChildren | undefined {
       return typeof this.text === 'function' ? this.text() : this.text
     },
     positionStyle(): Record<string, string> {
@@ -165,6 +130,62 @@ export default Vue.extend({
       clearTimeout(this.timer)
       this.startTimer()
     }
+  },
+  render() {
+    const hasIcon = this.type && this.type !== 'loading' && this.showIcon
+    const hasProgress = this.type === 'loading'
+    const hasAction = typeof this.action === 'function' || (typeof this.action === 'boolean' && this.action)
+    const closeSnackbar = () => (this.isActive = false)
+
+    const action = ({ attrs }: { attrs: Record<string, any> }) => {
+      if (typeof this.action === 'function') return this.action({ attrs, on: { click: closeSnackbar } })
+
+      return (
+        <VBtn right={!this.$vuetify.rtl} left={this.$vuetify.rtl} icon on-click={closeSnackbar}>
+          <VIcon>$close</VIcon>
+        </VBtn>
+      )
+    }
+
+    const genIcon = (
+      <VIcon size="14" right={this.$vuetify.rtl} left={!this.$vuetify.rtl}>
+        {`$${this.type}`}
+      </VIcon>
+    )
+
+    const genProgress = <VProgressCircular size="14" width="2" indeterminate color="primary" class="mr-1"></VProgressCircular>
+
+    return (
+      <MessageTransition position={this.position}>
+        <VSnackbar
+          value={true}
+          {...{ directives: [{ name: 'show', value: this.isActive }] }}
+          timeout={-1}
+          color={this.getColor}
+          top={this.top}
+          left={this.left}
+          right={this.right}
+          bottom={this.bottom}
+          multi-line={this.multiLine}
+          vertical={this.vertical}
+          elevation={this.elevation}
+          text={this.flat}
+          centered={this.centered}
+          rounded={this.rounded}
+          outlined={this.outlined}
+          shaped={this.shaped}
+          transition={false}
+          style={this.positionStyle}
+          scopedSlots={{
+            action: hasAction ? action : undefined
+          }}
+        >
+          {hasIcon && genIcon}
+          {hasProgress && genProgress}
+          {this.getText}
+        </VSnackbar>
+      </MessageTransition>
+    )
   }
 })
 </script>

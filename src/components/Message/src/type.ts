@@ -1,10 +1,18 @@
-import Vue from 'vue'
+import Vue, { VNodeChildren, VNode } from 'vue'
 
 export type MessageType = 'success' | 'warning' | 'info' | 'error' | 'loading'
 
 export type MessagePosition = 'top' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 
-export interface MessageProps {
+interface Fn<T = any, R = T> {
+  (...arg: T[]): R
+}
+
+export interface CloseEventHandler {
+  (instance: MessageComponent): void
+}
+
+export interface MessageOptions {
   timeout: number
   position: MessagePosition
   multiLine: boolean
@@ -15,18 +23,24 @@ export interface MessageProps {
   rounded: boolean | string
   outlined: boolean
   shaped: boolean
-  text: string | (() => string)
+  text: string | (() => string | VNodeChildren | VNode | undefined)
   type: MessageType
   color: string
-  onClose: () => void
-  showClose: boolean
   showIcon: boolean
+  action: boolean | ((props: { attrs: Record<string, any>; on: { click: Fn } }) => any)
+  key: string
+  onClose?: CloseEventHandler
+}
+
+export interface MessageProps extends Omit<MessageOptions, 'key'> {
+  onClose: () => void
 }
 
 export declare class MessageComponent extends Vue implements Partial<MessageProps> {
-  timeout?: number
-  position?: MessagePosition
-  text?: string | (() => string)
+  timeout: number
+  position: MessagePosition
+  vertical: boolean
+  text: string | (() => string)
   type?: MessageType
 
   $el: HTMLElement
@@ -37,13 +51,4 @@ export declare class MessageComponent extends Vue implements Partial<MessageProp
   top: number
   close(): void
   resetTimer?(): void
-}
-
-export interface CloseEventHandler {
-  (instance: MessageComponent): void
-}
-
-export interface MessageOptions extends Partial<Omit<MessageProps, 'onClose'>> {
-  key?: string
-  onClose?: CloseEventHandler
 }
