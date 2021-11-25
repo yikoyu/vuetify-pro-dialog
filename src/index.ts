@@ -1,5 +1,5 @@
-import CreateMessage from './components/Message'
-import CreateMessageBox from './components/MessageBox/index'
+import CreateMessage, { MessageOptions } from './components/Message'
+import CreateMessageBox, { MessageBoxOptions } from './components/MessageBox/index'
 import { setVuetifyInstance, merge } from './utils'
 import locale, { zhCN, enUS } from './locales'
 
@@ -112,4 +112,5 @@ const MessageBox = CreateMessageBox(options)
 
 export { zhCN, enUS, locale }
 export { Message, MessageBox }
+export type { MessageOptions, MessageBoxOptions }
 export default Plugin
