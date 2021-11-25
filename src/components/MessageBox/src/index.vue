@@ -28,6 +28,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+import locale from '@/locales'
 import type { MessageBoxProps } from './type'
 
 export const defaultMessageBoxProps = {
@@ -61,7 +62,7 @@ export const defaultMessageBoxProps = {
   },
   title: {
     type: [String, Function] as PropType<MessageBoxProps['text']>,
-    default: '提示'
+    default: () => locale.i18nRender('dialog.warn')
   },
   contentClass: {
     type: String,
