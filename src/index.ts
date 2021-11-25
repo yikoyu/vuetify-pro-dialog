@@ -18,7 +18,7 @@ export interface VuetifyProDialog {
   confirm: MessageBoxComp['confirm']
   alert: MessageBoxComp['alert']
   prompt: MessageBoxComp['prompt']
-  changeRtl: (type: boolean) => void
+  setRTL: (type: boolean) => void
   locale: Locale
 }
 
@@ -88,7 +88,7 @@ const install = (Vue: VueConstructor, opts: InstallationOptions) => {
     alert: msgbox.alert,
     prompt: msgbox.prompt,
     locale: locale,
-    changeRtl: (type: boolean) => {
+    setRTL: (type: boolean) => {
       if (vuetify) {
         vuetify.preset.rtl = type
       }
