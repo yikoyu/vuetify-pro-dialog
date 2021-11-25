@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="isActive" :max-width="width" :persistent="persistent" :scrollable="scrollable" @click:outside="dialogOutside">
+  <v-dialog v-model="isActive" width="100%" :max-width="width" :persistent="persistent" :scrollable="scrollable" @click:outside="dialogOutside">
     <v-card dense tile>
       <v-toolbar v-if="Boolean(getTitle)" :dark="Boolean(getColor)" :color="getColor" dense flat>
         <v-icon v-if="Boolean(getIcon) && showIcon" v-bind="[{ [`${$vuetify.rtl ? 'right' : 'left'}`]: true }]">{{ getIcon }}</v-icon>
