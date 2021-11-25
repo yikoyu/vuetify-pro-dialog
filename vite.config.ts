@@ -12,11 +12,7 @@ import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   plugins: [
     createVuePlugin({
-      jsx: true,
-      jsxOptions: {
-        vModel: false,
-        compositionAPI: false
-      }
+      jsx: true
     }),
     Components({
       resolvers: [VuetifyResolver()]
@@ -30,7 +26,7 @@ export default defineConfig({
     })
   ],
   optimizeDeps: {
-    include: ['vue', '@vue/composition-api', 'lodash-es', 'vuetify', 'vuetify/lib']
+    include: ['vue', '@vue/composition-api', 'vuetify', 'vuetify/lib']
   },
   resolve: {
     alias: {
@@ -47,12 +43,11 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue',
-          '@vue/composition-api': 'VueCompositionAPI',
           vuetify: 'Vuetify',
           'vuetify/lib': 'VuetifyLib'
         }
       },
-      external: ['vue', '@vue/composition-api', 'vuetify', 'vuetify/lib']
+      external: ['vue', 'vuetify', 'vuetify/lib']
     }
   }
 })
