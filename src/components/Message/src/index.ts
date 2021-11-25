@@ -42,9 +42,9 @@ export class MessageComp {
 
     if (options?.type === 'loading') {
       options.type = 'loading'
-      options.showIcon = options.showIcon || true
+      options.showIcon = typeof options.showIcon === 'boolean' ? options.showIcon : true
       options.position = options.position || 'top'
-      options.action = options.action || false
+      options.action = typeof options.action === 'boolean' ? options.action : false
       options.timeout = options.timeout || -1
     } else {
       if (!options.timeout) options.timeout = 5000
@@ -160,9 +160,9 @@ export class MessageComp {
       options = {}
     }
 
-    options.showIcon = options.showIcon || true
+    options.showIcon = typeof options.showIcon === 'boolean' ? options.showIcon : true
     options.position = options.position || 'top'
-    options.action = options.action || false
+    options.action = typeof options.action === 'boolean' ? options.action : false
     options.timeout = options.timeout || -1
 
     return this.open(text, {
@@ -183,10 +183,10 @@ export class MessageComp {
         config = { ...text }
       }
 
-      config.vertical = config.vertical || true
-      config.showIcon = config.showIcon || true
+      config.vertical = typeof config.vertical === 'boolean' ? config.vertical : true
+      config.showIcon = typeof config.showIcon === 'boolean' ? config.showIcon : true
       config.position = config.position || 'top-right'
-      config.action = config.action || true
+      config.action = typeof config.action === 'boolean' ? config.action : true
       config.timeout = config.timeout || 5000
 
       const content = typeof text === 'object' ? config.text : text
