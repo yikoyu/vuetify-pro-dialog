@@ -35,7 +35,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "lint": "eslint {src,examples}/**/*.{js,ts,tsx,vue}",
     "lint:fix": "eslint {src,examples}/**/*.{js,ts,tsx,vue} --fix",
-    "git-commit": "git-cz"
+    "git-commit": "git-cz",
+    "preinstall": "npx only-allow pnpm"
   },
   "config": {
     "commitizen": {
@@ -74,7 +75,6 @@
     "vue-tsc": "^0.29.5"
   },
   "dependencies": {
-    "@vue/composition-api": "^1.4.0",
     "lodash.merge": "^4.6.2",
     "vue": "^2.6.14",
     "vuetify": "^2.6.0"

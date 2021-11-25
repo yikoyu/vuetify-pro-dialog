@@ -1,76 +1,92 @@
 lockfileVersion: 5.3
 
-specifiers:
-  '@commitlint/cli': ^15.0.0
-  '@commitlint/config-conventional': ^15.0.0
-  '@commitlint/cz-commitlint': ^15.0.0
-  '@types/lodash.merge': ^4.6.6
-  '@types/node': ^16.11.8
-  '@typescript-eslint/eslint-plugin': ^5.4.0
-  '@typescript-eslint/parser': ^5.4.0
-  '@vitejs/plugin-vue': ^1.9.3
-  '@vue/babel-helper-vue-jsx-merge-props': ^1.2.1
-  '@vue/compiler-sfc': ^3.2.22
-  '@vue/composition-api': ^1.4.0
-  '@vue/eslint-config-prettier': ^6.0.0
-  '@vue/eslint-config-typescript': ^9.1.0
-  commitizen: ^4.2.4
-  eslint: ^8.2.0
-  eslint-config-prettier: ^8.3.0
-  eslint-plugin-prettier: ^4.0.0
-  eslint-plugin-vue: ^8.1.1
-  husky: 4.2.5
-  lint-staged: ^12.1.0
-  lodash.merge: ^4.6.2
-  prettier: ^2.4.1
-  sass: 1.32.13
-  typescript: ^4.4.3
-  unplugin-vue-components: ^0.17.2
-  vite: ^2.6.4
-  vite-plugin-dts: ^0.9.4
-  vite-plugin-eslint: ^1.3.0
-  vite-plugin-vue2: ^1.9.0
-  vue: ^2.6.14
-  vue-template-compiler: ^2.6.14
-  vue-tsc: ^0.29.5
-  vuetify: ^2.6.0
+importers:
 
-dependencies:
-  '@vue/composition-api': 1.4.0_vue@2.6.14
-  lodash.merge: 4.6.2
-  vue: 2.6.14
-  vuetify: 2.6.0_vue@2.6.14
+  .:
+    specifiers:
+      '@commitlint/cli': ^15.0.0
+      '@commitlint/config-conventional': ^15.0.0
+      '@commitlint/cz-commitlint': ^15.0.0
+      '@types/lodash.merge': ^4.6.6
+      '@types/node': ^16.11.8
+      '@typescript-eslint/eslint-plugin': ^5.4.0
+      '@typescript-eslint/parser': ^5.4.0
+      '@vitejs/plugin-vue': ^1.9.3
+      '@vue/babel-helper-vue-jsx-merge-props': ^1.2.1
+      '@vue/compiler-sfc': ^3.2.22
+      '@vue/eslint-config-prettier': ^6.0.0
+      '@vue/eslint-config-typescript': ^9.1.0
+      commitizen: ^4.2.4
+      eslint: ^8.2.0
+      eslint-config-prettier: ^8.3.0
+      eslint-plugin-prettier: ^4.0.0
+      eslint-plugin-vue: ^8.1.1
+      husky: 4.2.5
+      lint-staged: ^12.1.0
+      lodash.merge: ^4.6.2
+      prettier: ^2.4.1
+      sass: 1.32.13
+      typescript: ^4.4.3
+      unplugin-vue-components: ^0.17.2
+      vite: ^2.6.4
+      vite-plugin-dts: ^0.9.4
+      vite-plugin-eslint: ^1.3.0
+      vite-plugin-vue2: ^1.9.0
+      vue: ^2.6.14
+      vue-template-compiler: ^2.6.14
+      vue-tsc: ^0.29.5
+      vuetify: ^2.6.0
+    dependencies:
+      lodash.merge: 4.6.2
+      vue: 2.6.14
+      vuetify: 2.6.0_vue@2.6.14
+    devDependencies:
+      '@commitlint/cli': 15.0.0
+      '@commitlint/config-conventional': 15.0.0
+      '@commitlint/cz-commitlint': 15.0.0_commitizen@4.2.4
+      '@types/lodash.merge': 4.6.6
+      '@types/node': 16.11.8
+      '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
+      '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
+      '@vitejs/plugin-vue': 1.9.4_vite@2.6.14
+      '@vue/babel-helper-vue-jsx-merge-props': 1.2.1
+      '@vue/compiler-sfc': 3.2.22
+      '@vue/eslint-config-prettier': 6.0.0_5ef9ff6669b626527300390dc84546fb
+      '@vue/eslint-config-typescript': 9.1.0_fd7a4015d7491788152df517c2466191
+      commitizen: 4.2.4
+      eslint: 8.2.0
+      eslint-config-prettier: 8.3.0_eslint@8.2.0
+      eslint-plugin-prettier: 4.0.0_307f015733298e29da9050ea0cee5b9e
+      eslint-plugin-vue: 8.1.1_eslint@8.2.0
+      husky: 4.2.5
+      lint-staged: 12.1.0
+      prettier: 2.4.1
+      sass: 1.32.13
+      typescript: 4.5.2
+      unplugin-vue-components: 0.17.2_vite@2.6.14+vue@2.6.14
+      vite: 2.6.14_sass@1.32.13
+      vite-plugin-dts: 0.9.4_vite@2.6.14
+      vite-plugin-eslint: 1.3.0_vite@2.6.14
+      vite-plugin-vue2: 1.9.0_cd1846aafe4c35f31c699104ee2df148
+      vue-template-compiler: 2.6.14
+      vue-tsc: 0.29.5_typescript@4.5.2
 
-devDependencies:
-  '@commitlint/cli': 15.0.0
-  '@commitlint/config-conventional': 15.0.0
-  '@commitlint/cz-commitlint': 15.0.0_commitizen@4.2.4
-  '@types/lodash.merge': 4.6.6
-  '@types/node': 16.11.8
-  '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
-  '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
-  '@vitejs/plugin-vue': 1.9.4_vite@2.6.14
-  '@vue/babel-helper-vue-jsx-merge-props': 1.2.1
-  '@vue/compiler-sfc': 3.2.22
-  '@vue/eslint-config-prettier': 6.0.0_5ef9ff6669b626527300390dc84546fb
-  '@vue/eslint-config-typescript': 9.1.0_fd7a4015d7491788152df517c2466191
-  commitizen: 4.2.4
-  eslint: 8.2.0
-  eslint-config-prettier: 8.3.0_eslint@8.2.0
-  eslint-plugin-prettier: 4.0.0_307f015733298e29da9050ea0cee5b9e
-  eslint-plugin-vue: 8.1.1_eslint@8.2.0
-  husky: 4.2.5
-  lint-staged: 12.1.0
-  prettier: 2.4.1
-  sass: 1.32.13
-  typescript: 4.5.2
-  unplugin-vue-components: 0.17.2_vite@2.6.14+vue@2.6.14
-  vite: 2.6.14_sass@1.32.13
-  vite-plugin-dts: 0.9.4_vite@2.6.14
-  vite-plugin-eslint: 1.3.0_vite@2.6.14
-  vite-plugin-vue2: 1.9.0_cd1846aafe4c35f31c699104ee2df148
-  vue-template-compiler: 2.6.14
-  vue-tsc: 0.29.5_typescript@4.5.2
+  examples:
+    specifiers:
+      '@types/markdown-it': ^12.2.3
+      '@types/prismjs': ^1.16.6
+      '@vue/composition-api': ^1.4.0
+      markdown-it: ^12.2.0
+      markdown-it-prism: ^2.2.1
+      prismjs: ^1.25.0
+    dependencies:
+      '@vue/composition-api': 1.4.0_vue@2.6.14
+      markdown-it: 12.2.0
+      markdown-it-prism: 2.2.1
+      prismjs: 1.25.0
+    devDependencies:
+      '@types/markdown-it': 12.2.3
+      '@types/prismjs': 1.16.6
 
 packages:
 
@@ -689,6 +705,10 @@ packages:
     resolution: {integrity: sha1-l+3JA36gw4WFMgsolk3eOznkZg0=, tarball: '@types/json-schema/download/@types/json-schema-7.0.9.tgz'}
     dev: true
 
+  /@types/linkify-it/3.0.2:
+    resolution: {integrity: sha1-/SzS7bqn6qx+fzwXSLUqGRQ4Rsk=, tarball: '@types/linkify-it/download/@types/linkify-it-3.0.2.tgz'}
+    dev: true
+
   /@types/lodash.merge/4.6.6:
     resolution: {integrity: sha1-uEtAPB0xvELVF3LRzVVX+gCM09Y=, tarball: '@types/lodash.merge/download/@types/lodash.merge-4.6.6.tgz'}
     dependencies:
@@ -697,6 +717,17 @@ packages:
 
   /@types/lodash/4.14.177:
     resolution: {integrity: sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==, tarball: '@types/lodash/download/@types/lodash-4.14.177.tgz'}
+    dev: true
+
+  /@types/markdown-it/12.2.3:
+    resolution: {integrity: sha1-DW9uXkE/jaqiZSKQRZe+PWzZO1E=, tarball: '@types/markdown-it/download/@types/markdown-it-12.2.3.tgz'}
+    dependencies:
+      '@types/linkify-it': 3.0.2
+      '@types/mdurl': 1.0.2
+    dev: true
+
+  /@types/mdurl/1.0.2:
+    resolution: {integrity: sha1-4s6dg6YTus8oTHvn1JGUXjnh+Ok=, tarball: '@types/mdurl/download/@types/mdurl-1.0.2.tgz'}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -713,6 +744,10 @@ packages:
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=, tarball: '@types/parse-json/download/@types/parse-json-4.0.0.tgz'}
+    dev: true
+
+  /@types/prismjs/1.16.6:
+    resolution: {integrity: sha1-N3BU9y9nGzbb54xRfOKyedg+zEA=, tarball: '@types/prismjs/download/@types/prismjs-1.16.6.tgz'}
     dev: true
 
   /@types/throttle-debounce/2.1.0:
@@ -1250,7 +1285,6 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=, tarball: argparse/download/argparse-2.0.1.tgz}
-    dev: true
 
   /array-ify/1.0.0:
     resolution: {integrity: sha1-nlKHYrSpBmrRY6aWKjZEGOlibs4=, tarball: array-ify/download/array-ify-1.0.0.tgz}
@@ -2240,6 +2274,10 @@ packages:
     dependencies:
       ansi-colors: 4.1.1
     dev: true
+
+  /entities/2.1.0:
+    resolution: {integrity: sha1-mS0xKc999ocLlsV4WMJJoSD4uLU=, tarball: entities/download/entities-2.1.0.tgz}
+    dev: false
 
   /entities/2.2.0:
     resolution: {integrity: sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=, tarball: entities/download/entities-2.2.0.tgz}
@@ -3419,6 +3457,12 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==, tarball: lines-and-columns/download/lines-and-columns-1.2.4.tgz}
     dev: true
 
+  /linkify-it/3.0.3:
+    resolution: {integrity: sha1-qYuvRM5FpVDvtNScdp0HUkzC+i4=, tarball: linkify-it/download/linkify-it-3.0.3.tgz}
+    dependencies:
+      uc.micro: 1.0.6
+    dev: false
+
   /lint-staged/12.1.0:
     resolution: {integrity: sha512-h+fhsdYbt1fhItNj63UmpY5mkeF6z2YjXHtY0oQ4KdQc2kUvaPXOkWk0W9MhUlMdfb1G2SwYPhpcF17JIJDNWg==, tarball: lint-staged/download/lint-staged-12.1.0.tgz}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -3558,6 +3602,28 @@ packages:
     resolution: {integrity: sha1-kwT5Buk/qucIgNoQKp8d8OqLsFo=, tarball: map-obj/download/map-obj-4.3.0.tgz}
     engines: {node: '>=8'}
     dev: true
+
+  /markdown-it-prism/2.2.1:
+    resolution: {integrity: sha1-kzWuUITCcPRh9QCOjyGfXjtJF1s=, tarball: markdown-it-prism/download/markdown-it-prism-2.2.1.tgz}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      prismjs: 1.25.0
+    dev: false
+
+  /markdown-it/12.2.0:
+    resolution: {integrity: sha1-CR9yD9XbIG+A3nqNHxpwNf0NONs=, tarball: markdown-it/download/markdown-it-12.2.0.tgz}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+      entities: 2.1.0
+      linkify-it: 3.0.3
+      mdurl: 1.0.1
+      uc.micro: 1.0.6
+    dev: false
+
+  /mdurl/1.0.1:
+    resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=, tarball: mdurl/download/mdurl-1.0.1.tgz}
+    dev: false
 
   /meow/8.1.2:
     resolution: {integrity: sha1-vL5FvaDuFynTUMA8/8g5WjbE6Jc=, tarball: meow/download/meow-8.1.2.tgz}
@@ -3915,6 +3981,10 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /prismjs/1.25.0:
+    resolution: {integrity: sha1-b4It8b2tllc0sxCzFaIzFc+Zl1Y=, tarball: prismjs/download/prismjs-1.25.0.tgz}
+    dev: false
 
   /private/0.1.8:
     resolution: {integrity: sha1-I4Hts2ifelPWUxkAYPz4ItLzaP8=, tarball: private/download/private-0.1.8.tgz}
@@ -4620,7 +4690,7 @@ packages:
     dev: true
 
   /tslib/2.3.1:
-    resolution: {integrity: sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=, tarball: tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1632920830240&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz}
+    resolution: {integrity: sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=, tarball: tslib/download/tslib-2.3.1.tgz}
 
   /tsutils/3.21.0_typescript@4.5.2:
     resolution: {integrity: sha1-tIcX05TOpsHglpg+7Vjp1hcVtiM=, tarball: tsutils/download/tsutils-3.21.0.tgz}
@@ -4669,6 +4739,10 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
+
+  /uc.micro/1.0.6:
+    resolution: {integrity: sha1-nEEagCpAmpH8bPdAgbq6NLJEmaw=, tarball: uc.micro/download/uc.micro-1.0.6.tgz}
+    dev: false
 
   /universalify/0.1.2:
     resolution: {integrity: sha1-tkb2m+OULavOzJ1mOcgNwQXvqmY=, tarball: universalify/download/universalify-0.1.2.tgz}
