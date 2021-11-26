@@ -5,6 +5,7 @@ node_modules/*
 src-capacitor/android/*
 dist_electron
 dist
+lib
 vue.config.js
 commitlint.config.js
 config/router-config.js
