@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import { defineConfig, UserConfig } from 'vite'
 // import vue from '@vitejs/plugin-vue'
 import { createVuePlugin } from 'vite-plugin-vue2'
 import eslintPlugin from 'vite-plugin-eslint'
@@ -9,32 +9,37 @@ import Components from 'unplugin-vue-components/vite'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    createVuePlugin({
-      jsx: true
-    }),
-    Components({
-      resolvers: [VuetifyResolver()]
-    }),
-    dts({
-      tsConfigFilePath: 'tsconfig.lib.json',
-      insertTypesEntry: true
-    }),
-    eslintPlugin({
-      fix: true
-    })
-  ],
-  optimizeDeps: {
-    include: ['vue', '@vue/composition-api', 'vuetify', 'vuetify/lib']
-  },
-  resolve: {
-    alias: {
-      'vuetify-pro-dialog': resolve(__dirname, 'src'),
-      '@': resolve(__dirname, 'src')
+export default defineConfig(({ mode }) => {
+  const isExamples = mode === 'examples'
+
+  const config: UserConfig = {
+    plugins: [
+      createVuePlugin({
+        jsx: true
+      }),
+      Components({
+        resolvers: [VuetifyResolver()]
+      }),
+      dts({
+        tsConfigFilePath: 'tsconfig.lib.json',
+        insertTypesEntry: true
+      }),
+      eslintPlugin({
+        fix: true
+      })
+    ],
+    optimizeDeps: {
+      include: ['vue', '@vue/composition-api', 'vuetify', 'vuetify/lib']
+    },
+    resolve: {
+      alias: {
+        'vuetify-pro-dialog': resolve(__dirname, 'src'),
+        '@': resolve(__dirname, 'src')
+      }
     }
-  },
-  build: {
+  }
+
+  const build: UserConfig['build'] = {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'VuetifyProDialog'
@@ -50,4 +55,10 @@ export default defineConfig({
       external: ['vue', 'vuetify', 'vuetify/lib']
     }
   }
+
+  if (!isExamples) {
+    config.build = build
+  }
+
+  return config
 })
