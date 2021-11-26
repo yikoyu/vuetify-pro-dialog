@@ -2,6 +2,8 @@
 
 函数式调用Vuetify `Snackbar` 和 `Dialog` 的插件
 
+## [查看演示](https://yikoyu.github.io/vuetify-pro-dialog/)
+
 <p align="center">
   <a href="https://npmcharts.com/compare/vuetify-pro-dialog?minimal=true">
     <img src="http://img.shields.io/npm/dm/vuetify-pro-dialog.svg">
