@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
   const isExamples = mode === 'examples'
 
   const config: UserConfig = {
+    base: './',
     plugins: [
       createVuePlugin({
         jsx: true
