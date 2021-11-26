@@ -20,10 +20,6 @@ export default defineConfig(({ mode }) => {
       Components({
         resolvers: [VuetifyResolver()]
       }),
-      dts({
-        tsConfigFilePath: 'tsconfig.lib.json',
-        insertTypesEntry: true
-      }),
       eslintPlugin({
         fix: true
       })
@@ -58,6 +54,12 @@ export default defineConfig(({ mode }) => {
   }
 
   if (!isExamples) {
+    const dtsPlugin = dts({
+      tsConfigFilePath: 'tsconfig.lib.json',
+      insertTypesEntry: true
+    })
+
+    config.plugins.push(dtsPlugin)
     config.build = build
   }
 
