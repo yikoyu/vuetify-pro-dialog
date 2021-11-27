@@ -13,6 +13,7 @@ export interface CloseEventHandler {
 }
 
 export interface MessageOptions {
+  app: boolean
   timeout: number
   position: MessagePosition
   multiLine: boolean

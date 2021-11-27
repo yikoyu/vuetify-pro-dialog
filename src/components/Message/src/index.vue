@@ -5,6 +5,10 @@ import MessageTransition from '@/components/MessageTransition/index.vue'
 import type { MessageProps } from './type'
 
 export const defaultMessageProps = {
+  app: {
+    type: Boolean,
+    default: true
+  },
   timeout: {
     type: Number,
     default: 3000
@@ -160,6 +164,7 @@ export default Vue.extend({
         <VSnackbar
           value={true}
           {...{ directives: [{ name: 'show', value: this.isActive }] }}
+          app={this.app}
           timeout={-1}
           color={this.getColor}
           top={this.top}
