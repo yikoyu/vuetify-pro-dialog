@@ -1,4 +1,5 @@
-import Vuetify, { VuetifyPreset } from 'vuetify'
+import Vuetify from 'vuetify/lib'
+import type { VuetifyPreset } from 'vuetify/types'
 import merge from 'lodash.merge'
 
 let vuetifyInstance: Vuetify

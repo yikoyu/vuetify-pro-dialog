@@ -4,7 +4,7 @@ import { setVuetifyInstance, merge } from './utils'
 import locale, { zhCN, enUS } from './locales'
 
 import type { VueConstructor } from 'vue'
-import type { default as Vuetify } from 'vuetify'
+import type { default as Vuetify } from 'vuetify/lib'
 import type { InstallationMessageOptions } from './components/MessageBox/src/type'
 import type { MessageBoxComp } from './components/MessageBox/src'
 import type { MessageComp } from './components/Message/src'
