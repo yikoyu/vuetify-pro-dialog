@@ -39,7 +39,10 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
-    - name: Build Project
-      run: pnpm push
+    - name: Build Lib
+      run: pnpm build:lib
+
+    - name: Publish to NPM
+      run: npm publish --registry http://registry.npmjs.org" || true
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
