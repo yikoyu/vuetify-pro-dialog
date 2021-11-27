@@ -30,10 +30,32 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        'vuetify-pro-dialog': resolve(__dirname, 'src'),
+        'vuetify-pro-dialog': resolve(__dirname, 'lib/vuetify-pro-dialog.es.js'),
         '@': resolve(__dirname, 'src')
       }
     }
+  }
+
+  if (isExamples) {
+    const build: UserConfig['build'] = {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            const chunks = [
+              { test: /[\\/]node_modules[\\/]_?vue\//, name: 'chunk-vue' },
+              { test: /[\\/]node_modules[\\/]_?vuetify(.*)/, name: 'chunk-vuetify' }
+            ]
+
+            const chunk = chunks.find(({ test }) => test.test(id))
+            if (chunk) return chunk.name
+          }
+        }
+      }
+    }
+
+    config.build = build
+
+    return config
   }
 
   const build: UserConfig['build'] = {
@@ -54,15 +76,13 @@ export default defineConfig(({ mode }) => {
     }
   }
 
-  if (!isExamples) {
-    const dtsPlugin = dts({
-      tsConfigFilePath: 'tsconfig.lib.json',
-      insertTypesEntry: true
-    })
+  const dtsPlugin = dts({
+    tsConfigFilePath: 'tsconfig.lib.json',
+    insertTypesEntry: true
+  })
 
-    config.plugins.push(dtsPlugin)
-    config.build = build
-  }
+  config.plugins.push(dtsPlugin)
+  config.build = build
 
   return config
 })

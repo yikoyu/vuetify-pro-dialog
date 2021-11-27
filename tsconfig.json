@@ -14,7 +14,7 @@
     "lib": ["esnext", "dom"],
     "paths": {
       "@/*":["./src/*"],
-      "vuetify-pro-dialog":["./src/index.ts"]
+      "vuetify-pro-dialog":["./lib/src/index.d.ts"]
     }
   },
   "include": [
