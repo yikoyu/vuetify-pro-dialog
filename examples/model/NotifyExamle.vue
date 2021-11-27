@@ -7,6 +7,7 @@
       <v-select v-model="options.type" label="类型" :items="types" hide-details></v-select>
       <v-select v-model="options.position" label="位置" :items="positions" hide-details></v-select>
       <v-checkbox v-model="options.isUpdate" label="更新" hide-details></v-checkbox>
+      <v-checkbox v-model="options.app" label="App" hide-details></v-checkbox>
       <v-slider v-model="options.timeout" label="时间" :min="-1" :max="10000" thumb-label="always"></v-slider>
     </template>
   </example-area>
@@ -22,6 +23,7 @@ interface Options {
   position: MessageOptions['position']
   timeout: number
   isUpdate: boolean
+  app: boolean
 }
 
 export default defineComponent({
@@ -41,7 +43,8 @@ export default defineComponent({
       type: 'open',
       position: 'top-right',
       timeout: 3000,
-      isUpdate: false
+      isUpdate: false,
+      app: true
     })
     const n = ref(1)
 
@@ -50,7 +53,8 @@ export default defineComponent({
         type: options.type === 'open' ? undefined : options.type,
         position: options.position,
         timeout: options.timeout,
-        key: options.isUpdate ? 'message' : undefined
+        key: options.isUpdate ? 'message' : undefined,
+        app: options.app
       })
 
       n.value++

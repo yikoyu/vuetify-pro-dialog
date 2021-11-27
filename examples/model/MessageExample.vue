@@ -8,6 +8,7 @@
       <v-select v-model="options.position" label="位置" :items="positions" hide-details></v-select>
       <v-checkbox v-model="options.isUpdate" label="更新" hide-details></v-checkbox>
       <v-checkbox v-model="options.isLoading" label="loading" hide-details></v-checkbox>
+      <v-checkbox v-model="options.app" label="App" hide-details></v-checkbox>
       <v-slider v-model="options.timeout" label="时间" :min="-1" :max="10000" thumb-label="always"></v-slider>
     </template>
   </example-area>
@@ -24,6 +25,7 @@ interface Options {
   timeout: number
   isUpdate: boolean
   isLoading: boolean
+  app: boolean
 }
 
 export default defineComponent({
@@ -44,7 +46,8 @@ export default defineComponent({
       position: 'top-right',
       timeout: 3000,
       isUpdate: false,
-      isLoading: false
+      isLoading: false,
+      app: true
     })
     const n = ref(1)
 
@@ -52,7 +55,8 @@ export default defineComponent({
       Message[options.isLoading ? 'loading' : options.type](`这是 ${unref(n)} 段信息。`, {
         position: options.position,
         timeout: options.timeout,
-        key: options.isUpdate ? 'message' : undefined
+        key: options.isUpdate ? 'message' : undefined,
+        app: options.app
       })
 
       n.value++

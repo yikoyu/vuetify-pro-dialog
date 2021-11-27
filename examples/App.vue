@@ -23,11 +23,18 @@ export default defineComponent({
       }
     }
 
+    function setDark(bool: boolean) {
+      if (typeof bool === 'boolean') {
+        root.$vuetify.theme.dark = bool
+      }
+    }
+
     return {
       types,
       positions,
       setLocale,
-      setRtl
+      setRtl,
+      setDark
     }
   }
 })
@@ -35,6 +42,11 @@ export default defineComponent({
 
 <template>
   <v-app id="app">
+    <v-app-bar app color="primary" dark dense>
+      <v-avatar tile size="32">
+        <v-img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-light.svg" alt="logo" />
+      </v-avatar>
+    </v-app-bar>
     <v-main>
       <v-container>
         <v-row>
@@ -49,6 +61,7 @@ export default defineComponent({
                     <v-radio label="英语" value="en-US"></v-radio>
                   </v-radio-group>
                   <v-checkbox label="RTL" hide-details @change="setRtl"></v-checkbox>
+                  <v-checkbox label="Dark" hide-details @change="setDark"></v-checkbox>
                 </v-card-text>
               </v-card>
             </v-col>

@@ -2,7 +2,11 @@ import Vue from 'vue'
 import VCA, { createApp, h } from '@vue/composition-api'
 import App from './App.vue'
 
-import vuetify from './core/vuetify'
+import { createVuetify } from './core/vuetify'
+import { createVuetifyDialog } from './core/vuetify/dialog'
+
+const vuetify = createVuetify(Vue)
+createVuetifyDialog(Vue, vuetify)
 
 Vue.use(VCA)
 

@@ -10,7 +10,7 @@
         <v-divider></v-divider>
         <v-sheet
           class="overflow-y-auto fill-height d-flex align-center justify-center pa-4"
-          color="grey lighten-5"
+          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-5'"
           :min-height="contentHeight"
           :max-height="contentHeight"
         >
@@ -38,7 +38,7 @@
         </v-col>
         <!-- 代码区域 -->
         <v-col cols="12">
-          <v-sheet class="app-code overflow-hidden my-0" outlined color="grey lighten-5">
+          <v-sheet class="app-code overflow-hidden my-0" outlined :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-5'">
             <markup-text :language="language" :inline="inline" :code="code"></markup-text>
             <v-btn class="mr-n2 mt-n2" absolute icon right top rounded color="grey lighten-1">
               <v-icon>mdi-content-copy</v-icon>
