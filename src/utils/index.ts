@@ -14,7 +14,7 @@ export function getVuetifyInstance(instance?: Vuetify, preset?: VuetifyPreset) {
 }
 
 export function setVuetifyInstance(instance: Vuetify) {
-  if (!instance || !instance.constructor || instance.constructor.name !== 'Vuetify') {
+  if (!instance) {
     console.warn('[vuetify-pro-dialog]: invalid vuetify instance')
     return false
   }
