@@ -1,3 +1,12 @@
+## [2.0.2](https://github.com/yikoyu/vuetify-pro-dialog/compare/v2.0.1...v2.0.2) (2022-01-14)
+
+
+### Bug Fixes
+
+* **build:** vue和vueitify依赖改为devDependencies ([5b5c554](https://github.com/yikoyu/vuetify-pro-dialog/commit/5b5c55430f9d9322807a6dc3dda3b384fbb18f00))
+
+
+
 ## [2.0.1](https://github.com/yikoyu/vuetify-pro-dialog/compare/v2.0.0...v2.0.1) (2021-11-27)
 
 
