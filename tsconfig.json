@@ -13,8 +13,7 @@
     "types": ["vite/client", "vuetify", "node"],
     "lib": ["esnext", "dom"],
     "paths": {
-      "@/*":["./src/*"],
-      "vuetify-pro-dialog":["./lib/src/index.d.ts"]
+      "@/*":["./src/*"]
     }
   },
   "include": [

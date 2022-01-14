@@ -30,7 +30,6 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        'vuetify-pro-dialog': resolve(__dirname, 'lib/vuetify-pro-dialog.es.js'),
         '@': resolve(__dirname, 'src')
       }
     }
