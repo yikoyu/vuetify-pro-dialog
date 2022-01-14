@@ -39,7 +39,7 @@
     "lint:fix": "eslint {src,examples}/**/*.{js,ts,tsx,vue} --fix",
     "git-commit": "git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "push": "pnpm build:lib && npm publish --registry http://registry.npmjs.org",
+    "push": "pnpm build:lib && pnpm publish --no-git-checks --registry https://registry.npmjs.org/",
     "preinstall": "npx only-allow pnpm"
   },
   "config": {
