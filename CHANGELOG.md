@@ -1,3 +1,12 @@
+## [2.0.3](https://github.com/yikoyu/vuetify-pro-dialog/compare/v2.0.2...v2.0.3) (2022-01-15)
+
+
+### Bug Fixes
+
+* **install:** pnpm以外包管理安装报错 ([f9cd6ed](https://github.com/yikoyu/vuetify-pro-dialog/commit/f9cd6ede54dabbff39267aec6ccb559f8cd4c528))
+
+
+
 ## [2.0.2](https://github.com/yikoyu/vuetify-pro-dialog/compare/v2.0.1...v2.0.2) (2022-01-14)
 
 
