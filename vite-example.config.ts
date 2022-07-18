@@ -2,7 +2,6 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
 import eslintPlugin from 'vite-plugin-eslint'
-import dts from 'vite-plugin-dts'
 
 import Components from 'unplugin-vue-components/vite'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
@@ -11,9 +10,7 @@ import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   base: './',
   plugins: [
-    createVuePlugin({
-      jsx: true
-    }),
+    createVuePlugin(),
     Components({
       dirs: undefined,
       dts: false,
@@ -21,32 +18,11 @@ export default defineConfig({
     }),
     eslintPlugin({
       fix: true
-    }),
-    dts()
+    })
   ],
-  optimizeDeps: {
-    include: ['vue', '@vue/composition-api', 'vuetify', 'vuetify/lib']
-  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
-    }
-  },
-  build: {
-    outDir: 'lib',
-    lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      name: 'VuetifyProDialog'
-    },
-    rollupOptions: {
-      output: {
-        globals: {
-          vue: 'Vue',
-          vuetify: 'Vuetify',
-          'vuetify/lib': 'VuetifyLib'
-        }
-      },
-      external: ['vue', 'vuetify', 'vuetify/lib']
     }
   }
 })
