@@ -1,4 +1,7 @@
-module.exports = {
+require("@rushstack/eslint-patch/modern-module-resolution")
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
   root: true,
   env: {
     browser: true,
@@ -7,10 +10,11 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    '@vue/eslint-config-prettier',
+    '@vue/eslint-config-typescript/recommended',
     'plugin:vue/essential',
-    'plugin:prettier/recommended',
-    '@vue/typescript/recommended',
-    '@vue/prettier/@typescript-eslint'
+    'plugin:prettier/recommended'
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -44,5 +48,7 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off', // 禁止使用特定类型
     '@typescript-eslint/no-empty-function': 'off', // 不允许空函数
     '@typescript-eslint/no-non-null-assertion': 'off', // 禁用使用!后缀运算符
+
+    'vue/multi-word-component-names': 'off'
   }
-}
+})
