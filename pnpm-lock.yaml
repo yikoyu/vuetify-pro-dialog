@@ -73,6 +73,14 @@ importers:
       vue-tsc: 0.29.5_typescript@4.5.2
       vuetify: 2.6.2_vue@2.6.14
 
+  examples:
+    specifiers:
+      '@vue/composition-api': ^1.7.0
+      vuetify-pro-dialog: workspace:*
+    dependencies:
+      '@vue/composition-api': 1.7.0
+      vuetify-pro-dialog: link:..
+
 packages:
 
   /@antfu/utils/0.3.0:
@@ -1230,6 +1238,12 @@ packages:
       - walrus
       - whiskers
     dev: true
+
+  /@vue/composition-api/1.7.0:
+    resolution: {integrity: sha512-hxOgLYR+wjuPX9bkP2pAPlqUs98XxBoa9DSLyp1z6+YR92wC42PZcZKs4d+VRtcv4udOv041Kss+F6ap5nj8YA==}
+    peerDependencies:
+      vue: '>= 2.5 < 2.7'
+    dev: false
 
   /@vue/eslint-config-prettier/6.0.0_l3476ztjwytfe4yaheg4qrkg7m:
     resolution: {integrity: sha1-rVkSswj0rkaEWOAqKwXbC50kZwA=, tarball: '@vue/eslint-config-prettier/download/@vue/eslint-config-prettier-6.0.0.tgz'}
@@ -4921,6 +4935,7 @@ packages:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
