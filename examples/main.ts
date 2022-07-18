@@ -1,17 +1,15 @@
 import Vue from 'vue'
-import VCA, { createApp, h } from '@vue/composition-api'
+import VCA from '@vue/composition-api'
 import App from './App.vue'
 
-import { createVuetify } from './core/vuetify'
-import { createVuetifyDialog } from './core/vuetify/dialog'
+import { createVuetify, createVuetifyDialog } from './vuetify'
 
 const vuetify = createVuetify(Vue)
 createVuetifyDialog(Vue, vuetify)
 
 Vue.use(VCA)
 
-const app = createApp({
+new Vue({
   vuetify,
-  render: () => h(App)
-})
-app.mount('#app')
+  render: h => h(App)
+}).$mount('#app')

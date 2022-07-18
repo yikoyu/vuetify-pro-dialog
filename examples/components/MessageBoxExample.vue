@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, ref, unref, PropType, reactive } from '@vue/composition-api'
 import { MessageBox, MessageBoxOptions } from 'vuetify-pro-dialog'
-import ExampleArea from '../components/ExampleArea.vue'
+import ExampleArea from './ExampleArea.vue'
 
 interface Options {
   boxType: 'alert' | 'confirm' | 'prompt'

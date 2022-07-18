@@ -2,9 +2,9 @@
 import { defineComponent, ref } from '@vue/composition-api'
 import { locale, MessageOptions } from 'vuetify-pro-dialog'
 
-import MessageExample from './model/MessageExample.vue'
-import NotifyExamle from './model/NotifyExamle.vue'
-import MessageBoxExample from './model/MessageBoxExample.vue'
+import MessageExample from './components/MessageExample.vue'
+import NotifyExamle from './components/NotifyExamle.vue'
+import MessageBoxExample from './components/MessageBoxExample.vue'
 
 export default defineComponent({
   components: { MessageExample, NotifyExamle, MessageBoxExample },

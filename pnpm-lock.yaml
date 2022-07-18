@@ -75,26 +75,11 @@ importers:
 
   examples:
     specifiers:
-      '@types/markdown-it': ^12.2.3
-      '@types/prismjs': ^1.16.6
-      '@vue/composition-api': ^1.4.0
-      markdown-it: ^12.2.0
-      markdown-it-prism: ^2.2.1
-      prismjs: ^1.25.0
-      vue: ^2.6.14
-      vuetify: ^2.6.2
-      vuetify-pro-dialog: workspace:^2.0.3
+      '@vue/composition-api': ^1.7.0
+      vuetify-pro-dialog: workspace:*
     dependencies:
-      '@vue/composition-api': 1.4.0_vue@2.6.14
-      markdown-it: 12.2.0
-      markdown-it-prism: 2.2.1
-      prismjs: 1.25.0
-      vue: 2.6.14
-      vuetify: 2.6.2_vue@2.6.14
+      '@vue/composition-api': 1.7.0
       vuetify-pro-dialog: link:..
-    devDependencies:
-      '@types/markdown-it': 12.2.3
-      '@types/prismjs': 1.16.6
 
 packages:
 
@@ -720,10 +705,6 @@ packages:
     resolution: {integrity: sha1-l+3JA36gw4WFMgsolk3eOznkZg0=, tarball: '@types/json-schema/download/@types/json-schema-7.0.9.tgz'}
     dev: true
 
-  /@types/linkify-it/3.0.2:
-    resolution: {integrity: sha1-/SzS7bqn6qx+fzwXSLUqGRQ4Rsk=, tarball: '@types/linkify-it/download/@types/linkify-it-3.0.2.tgz'}
-    dev: true
-
   /@types/lodash.merge/4.6.6:
     resolution: {integrity: sha1-uEtAPB0xvELVF3LRzVVX+gCM09Y=, tarball: '@types/lodash.merge/download/@types/lodash.merge-4.6.6.tgz'}
     dependencies:
@@ -732,17 +713,6 @@ packages:
 
   /@types/lodash/4.14.177:
     resolution: {integrity: sha512-0fDwydE2clKe9MNfvXHBHF9WEahRuj+msTuQqOmAApNORFvhMYZKNGGJdCzuhheVjMps/ti0Ak/iJPACMaevvw==, tarball: '@types/lodash/download/@types/lodash-4.14.177.tgz'}
-    dev: true
-
-  /@types/markdown-it/12.2.3:
-    resolution: {integrity: sha1-DW9uXkE/jaqiZSKQRZe+PWzZO1E=, tarball: '@types/markdown-it/download/@types/markdown-it-12.2.3.tgz'}
-    dependencies:
-      '@types/linkify-it': 3.0.2
-      '@types/mdurl': 1.0.2
-    dev: true
-
-  /@types/mdurl/1.0.2:
-    resolution: {integrity: sha1-4s6dg6YTus8oTHvn1JGUXjnh+Ok=, tarball: '@types/mdurl/download/@types/mdurl-1.0.2.tgz'}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -759,10 +729,6 @@ packages:
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=, tarball: '@types/parse-json/download/@types/parse-json-4.0.0.tgz'}
-    dev: true
-
-  /@types/prismjs/1.16.6:
-    resolution: {integrity: sha1-N3BU9y9nGzbb54xRfOKyedg+zEA=, tarball: '@types/prismjs/download/@types/prismjs-1.16.6.tgz'}
     dev: true
 
   /@types/throttle-debounce/2.1.0:
@@ -1146,13 +1112,10 @@ packages:
       - whiskers
     dev: true
 
-  /@vue/composition-api/1.4.0_vue@2.6.14:
-    resolution: {integrity: sha512-fanqJw1cqhkfS1dcpFY52CeR0aWDBr7ub/0ObPWqMnNPdRsMi1gX04Q3aLeRtJEuVeCFewNbqvkPskkSPTVaXQ==, tarball: '@vue/composition-api/download/@vue/composition-api-1.4.0.tgz'}
+  /@vue/composition-api/1.7.0:
+    resolution: {integrity: sha512-hxOgLYR+wjuPX9bkP2pAPlqUs98XxBoa9DSLyp1z6+YR92wC42PZcZKs4d+VRtcv4udOv041Kss+F6ap5nj8YA==}
     peerDependencies:
-      vue: '>= 2.5 < 3'
-    dependencies:
-      tslib: 2.3.1
-      vue: 2.6.14
+      vue: '>= 2.5 < 2.7'
     dev: false
 
   /@vue/eslint-config-prettier/6.0.0_l3476ztjwytfe4yaheg4qrkg7m:
@@ -1363,6 +1326,7 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=, tarball: argparse/download/argparse-2.0.1.tgz}
+    dev: true
 
   /array-ify/1.0.0:
     resolution: {integrity: sha1-nlKHYrSpBmrRY6aWKjZEGOlibs4=, tarball: array-ify/download/array-ify-1.0.0.tgz}
@@ -2860,10 +2824,6 @@ packages:
       ansi-colors: 4.1.1
     dev: true
 
-  /entities/2.1.0:
-    resolution: {integrity: sha1-mS0xKc999ocLlsV4WMJJoSD4uLU=, tarball: entities/download/entities-2.1.0.tgz}
-    dev: false
-
   /entities/2.2.0:
     resolution: {integrity: sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=, tarball: entities/download/entities-2.2.0.tgz}
     dev: true
@@ -4108,12 +4068,6 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==, tarball: lines-and-columns/download/lines-and-columns-1.2.4.tgz}
     dev: true
 
-  /linkify-it/3.0.3:
-    resolution: {integrity: sha1-qYuvRM5FpVDvtNScdp0HUkzC+i4=, tarball: linkify-it/download/linkify-it-3.0.3.tgz}
-    dependencies:
-      uc.micro: 1.0.6
-    dev: false
-
   /lint-staged/12.1.0:
     resolution: {integrity: sha512-h+fhsdYbt1fhItNj63UmpY5mkeF6z2YjXHtY0oQ4KdQc2kUvaPXOkWk0W9MhUlMdfb1G2SwYPhpcF17JIJDNWg==, tarball: lint-staged/download/lint-staged-12.1.0.tgz}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -4275,28 +4229,6 @@ packages:
     resolution: {integrity: sha1-kwT5Buk/qucIgNoQKp8d8OqLsFo=, tarball: map-obj/download/map-obj-4.3.0.tgz}
     engines: {node: '>=8'}
     dev: true
-
-  /markdown-it-prism/2.2.1:
-    resolution: {integrity: sha1-kzWuUITCcPRh9QCOjyGfXjtJF1s=, tarball: markdown-it-prism/download/markdown-it-prism-2.2.1.tgz}
-    engines: {node: '>=6.0.0'}
-    dependencies:
-      prismjs: 1.25.0
-    dev: false
-
-  /markdown-it/12.2.0:
-    resolution: {integrity: sha1-CR9yD9XbIG+A3nqNHxpwNf0NONs=, tarball: markdown-it/download/markdown-it-12.2.0.tgz}
-    hasBin: true
-    dependencies:
-      argparse: 2.0.1
-      entities: 2.1.0
-      linkify-it: 3.0.3
-      mdurl: 1.0.1
-      uc.micro: 1.0.6
-    dev: false
-
-  /mdurl/1.0.1:
-    resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=, tarball: mdurl/download/mdurl-1.0.1.tgz}
-    dev: false
 
   /meow/8.1.2:
     resolution: {integrity: sha1-vL5FvaDuFynTUMA8/8g5WjbE6Jc=, tarball: meow/download/meow-8.1.2.tgz}
@@ -4712,10 +4644,6 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
-
-  /prismjs/1.25.0:
-    resolution: {integrity: sha1-b4It8b2tllc0sxCzFaIzFc+Zl1Y=, tarball: prismjs/download/prismjs-1.25.0.tgz}
-    dev: false
 
   /private/0.1.8:
     resolution: {integrity: sha1-I4Hts2ifelPWUxkAYPz4ItLzaP8=, tarball: private/download/private-0.1.8.tgz}
@@ -5492,6 +5420,7 @@ packages:
 
   /tslib/2.3.1:
     resolution: {integrity: sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=, tarball: tslib/download/tslib-2.3.1.tgz}
+    dev: true
 
   /tsutils/3.21.0_typescript@4.5.2:
     resolution: {integrity: sha1-tIcX05TOpsHglpg+7Vjp1hcVtiM=, tarball: tsutils/download/tsutils-3.21.0.tgz}
@@ -5540,10 +5469,6 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
-
-  /uc.micro/1.0.6:
-    resolution: {integrity: sha1-nEEagCpAmpH8bPdAgbq6NLJEmaw=, tarball: uc.micro/download/uc.micro-1.0.6.tgz}
-    dev: false
 
   /uglify-js/3.14.4:
     resolution: {integrity: sha512-AbiSR44J0GoCeV81+oxcy/jDOElO2Bx3d0MfQCUShq7JRXaM4KtQopZsq2vFv8bCq2yMaGrw1FgygUd03RyRDA==}
@@ -5943,6 +5868,7 @@ packages:
 
   /vue/2.6.14:
     resolution: {integrity: sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==, tarball: vue/download/vue-2.6.14.tgz}
+    dev: true
 
   /vuetify/2.6.2_vue@2.6.14:
     resolution: {integrity: sha512-nx3uZkO8MZNMshUEh1xKaQ1hQYepNwWFn3FVxKt+XBVf7ZFscd0GS/a3KZo4B3baXQmziCQAZKNIQF5IWeaIUw==, tarball: vuetify/download/vuetify-2.6.2.tgz}
@@ -5950,6 +5876,7 @@ packages:
       vue: ^2.6.4
     dependencies:
       vue: 2.6.14
+    dev: true
 
   /webpack-virtual-modules/0.4.3:
     resolution: {integrity: sha1-zVl8bVHVpey0c+6hmDpY+ooX3tk=, tarball: webpack-virtual-modules/download/webpack-virtual-modules-0.4.3.tgz}

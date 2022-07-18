@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent, ref, unref, PropType, reactive } from '@vue/composition-api'
 import { Message, MessageOptions } from 'vuetify-pro-dialog'
-import ExampleArea from '../components/ExampleArea.vue'
+import ExampleArea from './ExampleArea.vue'
 
 interface Options {
   type: MessageOptions['type'] | 'open'
