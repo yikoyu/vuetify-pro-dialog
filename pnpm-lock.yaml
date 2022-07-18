@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 importers:
 
@@ -45,18 +45,18 @@ importers:
       '@commitlint/cz-commitlint': 15.0.0_commitizen@4.2.4
       '@types/lodash.merge': 4.6.6
       '@types/node': 16.11.8
-      '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
-      '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
+      '@typescript-eslint/eslint-plugin': 5.4.0_23zfofmbraxlfvwj3gdh4abbqu
+      '@typescript-eslint/parser': 5.4.0_ple4j2pjmrfd4fppfabsrwszv4
       '@vitejs/plugin-vue': 1.9.4_vite@2.6.14
       '@vue/babel-helper-vue-jsx-merge-props': 1.2.1
       '@vue/compiler-sfc': 3.2.22
-      '@vue/eslint-config-prettier': 6.0.0_5ef9ff6669b626527300390dc84546fb
-      '@vue/eslint-config-typescript': 9.1.0_fd7a4015d7491788152df517c2466191
+      '@vue/eslint-config-prettier': 6.0.0_l3476ztjwytfe4yaheg4qrkg7m
+      '@vue/eslint-config-typescript': 9.1.0_7ltqcst5qwllhej3xoiaajhebm
       commitizen: 4.2.4
       conventional-changelog-cli: 2.1.1
       eslint: 8.2.0
       eslint-config-prettier: 8.3.0_eslint@8.2.0
-      eslint-plugin-prettier: 4.0.0_307f015733298e29da9050ea0cee5b9e
+      eslint-plugin-prettier: 4.0.0_gb7qcvztfghctwuqkdvaz3s3ty
       eslint-plugin-vue: 8.1.1_eslint@8.2.0
       husky: 4.2.5
       lint-staged: 12.1.0
@@ -67,7 +67,7 @@ importers:
       vite: 2.6.14_sass@1.32.13
       vite-plugin-dts: 0.9.4_vite@2.6.14
       vite-plugin-eslint: 1.3.0_vite@2.6.14
-      vite-plugin-vue2: 1.9.0_cd1846aafe4c35f31c699104ee2df148
+      vite-plugin-vue2: 1.9.0_zumenkx6jq27ghdjseco4lprja
       vue: 2.6.14
       vue-template-compiler: 2.6.14
       vue-tsc: 0.29.5_typescript@4.5.2
@@ -283,7 +283,7 @@ packages:
     dev: true
 
   /@babel/helper-validator-identifier/7.15.7:
-    resolution: {integrity: sha1-Ig35k7/pBKSmsCq08zhaXr9uI4k=, tarball: '@babel/helper-validator-identifier/download/@babel/helper-validator-identifier-7.15.7.tgz'}
+    resolution: {integrity: sha512-K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -316,6 +316,8 @@ packages:
     resolution: {integrity: sha512-6V0qdPUaiVHH3RtZeLIsc+6pDhbYzHR8ogA8w+f+Wc77DuXto19g2QUwveINoS34Uw+W8/hQDGJCx+i4n7xcng==, tarball: '@babel/parser/download/@babel/parser-7.16.4.tgz'}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.16.0
     dev: true
 
   /@babel/plugin-proposal-class-properties/7.16.0_@babel+core@7.16.0:
@@ -416,7 +418,7 @@ packages:
     dev: true
 
   /@babel/types/7.16.0:
-    resolution: {integrity: sha1-2zsxOAT5aq3Qt3bEgj4SetZyibo=, tarball: '@babel/types/download/@babel/types-7.16.0.tgz'}
+    resolution: {integrity: sha512-PJgg/k3SdLsGb3hhisFvtLOw5ts113klrpLuIPtCJIU+BB24fqq6lf8RWqKJEjzqXR9AEH1rIb5XTqwBHB+kQg==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/helper-validator-identifier': 7.15.7
@@ -508,7 +510,7 @@ packages:
       '@commitlint/execute-rule': 15.0.0
       '@commitlint/resolve-extends': 15.0.0
       '@commitlint/types': 15.0.0
-      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2_b67f536f129c730ed129a6d21d223ba9
+      '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2_wz7vg3ystrzq5ujju3jb2ir3ve
       chalk: 4.1.2
       cosmiconfig: 7.0.1
       lodash: 4.17.21
@@ -596,7 +598,7 @@ packages:
     resolution: {integrity: sha1-Blsq9iM/50dNRII+PeuJckr0K18=, tarball: '@emmetio/scanner/download/@emmetio/scanner-1.0.0.tgz'}
     dev: true
 
-  /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_b67f536f129c730ed129a6d21d223ba9:
+  /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_wz7vg3ystrzq5ujju3jb2ir3ve:
     resolution: {integrity: sha1-7qRjWCjd43KDiwkJaT69mq/uwi0=, tarball: '@endemolshinegroup/cosmiconfig-typescript-loader/download/@endemolshinegroup/cosmiconfig-typescript-loader-3.0.2.tgz'}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -767,7 +769,7 @@ packages:
     resolution: {integrity: sha1-HD32JL/Eti+ZLTASuExW1B6rN3Y=, tarball: '@types/throttle-debounce/download/@types/throttle-debounce-2.1.0.tgz'}
     dev: true
 
-  /@typescript-eslint/eslint-plugin/5.4.0_d6f2571581882eb2d6c9d9867e002185:
+  /@typescript-eslint/eslint-plugin/5.4.0_23zfofmbraxlfvwj3gdh4abbqu:
     resolution: {integrity: sha512-9/yPSBlwzsetCsGEn9j24D8vGQgJkOTr4oMLas/w886ZtzKIs1iyoqFrwsX2fqYEeUwsdBpC21gcjRGo57u0eg==, tarball: '@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-5.4.0.tgz'}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -778,8 +780,8 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/experimental-utils': 5.4.0_eslint@8.2.0+typescript@4.5.2
-      '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
+      '@typescript-eslint/experimental-utils': 5.4.0_ple4j2pjmrfd4fppfabsrwszv4
+      '@typescript-eslint/parser': 5.4.0_ple4j2pjmrfd4fppfabsrwszv4
       '@typescript-eslint/scope-manager': 5.4.0
       debug: 4.3.2
       eslint: 8.2.0
@@ -793,7 +795,7 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/experimental-utils/5.4.0_eslint@8.2.0+typescript@4.5.2:
+  /@typescript-eslint/experimental-utils/5.4.0_ple4j2pjmrfd4fppfabsrwszv4:
     resolution: {integrity: sha512-Nz2JDIQUdmIGd6p33A+naQmwfkU5KVTLb/5lTk+tLVTDacZKoGQisj8UCxk7onJcrgjIvr8xWqkYI+DbI3TfXg==, tarball: '@typescript-eslint/experimental-utils/download/@typescript-eslint/experimental-utils-5.4.0.tgz'}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -811,7 +813,7 @@ packages:
       - typescript
     dev: true
 
-  /@typescript-eslint/parser/5.4.0_eslint@8.2.0+typescript@4.5.2:
+  /@typescript-eslint/parser/5.4.0_ple4j2pjmrfd4fppfabsrwszv4:
     resolution: {integrity: sha512-JoB41EmxiYpaEsRwpZEYAJ9XQURPFer8hpkIW9GiaspVLX8oqbqNM8P4EP8HOZg96yaALiLEVWllA2E8vwsIKw==, tarball: '@typescript-eslint/parser/download/@typescript-eslint/parser-5.4.0.tgz'}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1088,6 +1090,60 @@ packages:
       vue-template-es2015-compiler: 1.9.1
     optionalDependencies:
       prettier: 2.4.1
+    transitivePeerDependencies:
+      - arc-templates
+      - atpl
+      - babel-core
+      - bracket-template
+      - coffee-script
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jade
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - lodash
+      - marko
+      - mote
+      - mustache
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - razor-tmpl
+      - react
+      - react-dom
+      - slm
+      - squirrelly
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-jade
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
     dev: true
 
   /@vue/composition-api/1.4.0_vue@2.6.14:
@@ -1099,7 +1155,7 @@ packages:
       vue: 2.6.14
     dev: false
 
-  /@vue/eslint-config-prettier/6.0.0_5ef9ff6669b626527300390dc84546fb:
+  /@vue/eslint-config-prettier/6.0.0_l3476ztjwytfe4yaheg4qrkg7m:
     resolution: {integrity: sha1-rVkSswj0rkaEWOAqKwXbC50kZwA=, tarball: '@vue/eslint-config-prettier/download/@vue/eslint-config-prettier-6.0.0.tgz'}
     peerDependencies:
       eslint: '>= 5.0.0'
@@ -1108,11 +1164,11 @@ packages:
     dependencies:
       eslint: 8.2.0
       eslint-config-prettier: 6.15.0_eslint@8.2.0
-      eslint-plugin-prettier: 4.0.0_307f015733298e29da9050ea0cee5b9e
+      eslint-plugin-prettier: 4.0.0_gb7qcvztfghctwuqkdvaz3s3ty
       prettier: 2.4.1
     dev: true
 
-  /@vue/eslint-config-typescript/9.1.0_fd7a4015d7491788152df517c2466191:
+  /@vue/eslint-config-typescript/9.1.0_7ltqcst5qwllhej3xoiaajhebm:
     resolution: {integrity: sha512-j/852/ZYQ5wDvCD3HE2q4uqJwJAceer2FwoEch1nFo+zTOsPrbzbE3cuWIs3kvu5hdFsGTMYwRwjI6fqZKDMxQ==, tarball: '@vue/eslint-config-typescript/download/@vue/eslint-config-typescript-9.1.0.tgz'}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1120,11 +1176,16 @@ packages:
       '@typescript-eslint/parser': ^5.0.0
       eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
       eslint-plugin-vue: ^8.0.1
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     dependencies:
-      '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
-      '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
+      '@typescript-eslint/eslint-plugin': 5.4.0_23zfofmbraxlfvwj3gdh4abbqu
+      '@typescript-eslint/parser': 5.4.0_ple4j2pjmrfd4fppfabsrwszv4
       eslint: 8.2.0
       eslint-plugin-vue: 8.1.1_eslint@8.2.0
+      typescript: 4.5.2
       vue-eslint-parser: 8.0.1_eslint@8.2.0
     transitivePeerDependencies:
       - supports-color
@@ -1349,6 +1410,8 @@ packages:
       babel-helper-explode-assignable-expression: 6.24.1
       babel-runtime: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-helper-call-delegate/6.24.1:
@@ -1358,6 +1421,8 @@ packages:
       babel-runtime: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-helper-define-map/6.26.0:
@@ -1367,6 +1432,8 @@ packages:
       babel-runtime: 6.26.0
       babel-types: 6.26.0
       lodash: 4.17.21
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-helper-explode-assignable-expression/6.24.1:
@@ -1375,6 +1442,8 @@ packages:
       babel-runtime: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-helper-function-name/6.24.1:
@@ -1385,6 +1454,8 @@ packages:
       babel-template: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-helper-get-function-arity/6.24.1:
@@ -1424,6 +1495,8 @@ packages:
       babel-template: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-helper-replace-supers/6.24.1:
@@ -1435,6 +1508,8 @@ packages:
       babel-template: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-messages/6.23.0:
@@ -1467,6 +1542,8 @@ packages:
       babel-helper-remap-async-to-generator: 6.24.1
       babel-plugin-syntax-async-functions: 6.13.0
       babel-runtime: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-arrow-functions/6.22.0:
@@ -1489,6 +1566,8 @@ packages:
       babel-traverse: 6.26.0
       babel-types: 6.26.0
       lodash: 4.17.21
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-classes/6.24.1:
@@ -1503,6 +1582,8 @@ packages:
       babel-template: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-computed-properties/6.24.1:
@@ -1510,6 +1591,8 @@ packages:
     dependencies:
       babel-runtime: 6.26.0
       babel-template: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-destructuring/6.23.0:
@@ -1537,6 +1620,8 @@ packages:
       babel-helper-function-name: 6.24.1
       babel-runtime: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-literals/6.22.0:
@@ -1551,6 +1636,8 @@ packages:
       babel-plugin-transform-es2015-modules-commonjs: 6.26.2
       babel-runtime: 6.26.0
       babel-template: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-modules-commonjs/6.26.2:
@@ -1560,6 +1647,8 @@ packages:
       babel-runtime: 6.26.0
       babel-template: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-modules-systemjs/6.24.1:
@@ -1568,6 +1657,8 @@ packages:
       babel-helper-hoist-variables: 6.24.1
       babel-runtime: 6.26.0
       babel-template: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-modules-umd/6.24.1:
@@ -1576,6 +1667,8 @@ packages:
       babel-plugin-transform-es2015-modules-amd: 6.24.1
       babel-runtime: 6.26.0
       babel-template: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-object-super/6.24.1:
@@ -1583,6 +1676,8 @@ packages:
     dependencies:
       babel-helper-replace-supers: 6.24.1
       babel-runtime: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-parameters/6.24.1:
@@ -1594,6 +1689,8 @@ packages:
       babel-template: 6.26.0
       babel-traverse: 6.26.0
       babel-types: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-es2015-shorthand-properties/6.24.1:
@@ -1643,6 +1740,8 @@ packages:
       babel-helper-builder-binary-assignment-operator-visitor: 6.24.1
       babel-plugin-syntax-exponentiation-operator: 6.13.0
       babel-runtime: 6.26.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-plugin-transform-regenerator/6.26.0:
@@ -1691,6 +1790,8 @@ packages:
       browserslist: 3.2.8
       invariant: 2.2.4
       semver: 5.7.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-runtime/6.26.0:
@@ -1708,6 +1809,8 @@ packages:
       babel-types: 6.26.0
       babylon: 6.18.0
       lodash: 4.17.21
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-traverse/6.26.0:
@@ -1722,6 +1825,8 @@ packages:
       globals: 9.18.0
       invariant: 2.2.4
       lodash: 4.17.21
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /babel-types/6.26.0:
@@ -2019,6 +2124,167 @@ packages:
   /consolidate/0.15.1:
     resolution: {integrity: sha1-IasEMjXHGgfUXZqtmFk7DbpWurc=, tarball: consolidate/download/consolidate-0.15.1.tgz}
     engines: {node: '>= 0.10.0'}
+    peerDependencies:
+      arc-templates: ^0.5.3
+      atpl: '>=0.7.6'
+      babel-core: ^6.26.3
+      bracket-template: ^1.1.5
+      coffee-script: ^1.12.7
+      dot: ^1.1.3
+      dust: ^0.3.0
+      dustjs-helpers: ^1.7.4
+      dustjs-linkedin: ^2.7.5
+      eco: ^1.1.0-rc-3
+      ect: ^0.5.9
+      ejs: ^3.1.5
+      haml-coffee: ^1.14.1
+      hamlet: ^0.3.3
+      hamljs: ^0.6.2
+      handlebars: ^4.7.6
+      hogan.js: ^3.0.2
+      htmling: ^0.0.8
+      jade: ^1.11.0
+      jazz: ^0.0.18
+      jqtpl: ~1.1.0
+      just: ^0.1.8
+      liquid-node: ^3.0.1
+      liquor: ^0.0.5
+      lodash: ^4.17.20
+      marko: ^3.14.4
+      mote: ^0.2.0
+      mustache: ^4.0.1
+      nunjucks: ^3.2.2
+      plates: ~0.4.11
+      pug: ^3.0.0
+      qejs: ^3.0.5
+      ractive: ^1.3.12
+      razor-tmpl: ^1.3.1
+      react: ^16.13.1
+      react-dom: ^16.13.1
+      slm: ^2.0.0
+      squirrelly: ^5.1.0
+      swig: ^1.4.2
+      swig-templates: ^2.0.3
+      teacup: ^2.0.0
+      templayed: '>=0.2.3'
+      then-jade: '*'
+      then-pug: '*'
+      tinyliquid: ^0.2.34
+      toffee: ^0.3.6
+      twig: ^1.15.2
+      twing: ^5.0.2
+      underscore: ^1.11.0
+      vash: ^0.13.0
+      velocityjs: ^2.0.1
+      walrus: ^0.10.1
+      whiskers: ^0.4.0
+    peerDependenciesMeta:
+      arc-templates:
+        optional: true
+      atpl:
+        optional: true
+      babel-core:
+        optional: true
+      bracket-template:
+        optional: true
+      coffee-script:
+        optional: true
+      dot:
+        optional: true
+      dust:
+        optional: true
+      dustjs-helpers:
+        optional: true
+      dustjs-linkedin:
+        optional: true
+      eco:
+        optional: true
+      ect:
+        optional: true
+      ejs:
+        optional: true
+      haml-coffee:
+        optional: true
+      hamlet:
+        optional: true
+      hamljs:
+        optional: true
+      handlebars:
+        optional: true
+      hogan.js:
+        optional: true
+      htmling:
+        optional: true
+      jade:
+        optional: true
+      jazz:
+        optional: true
+      jqtpl:
+        optional: true
+      just:
+        optional: true
+      liquid-node:
+        optional: true
+      liquor:
+        optional: true
+      lodash:
+        optional: true
+      marko:
+        optional: true
+      mote:
+        optional: true
+      mustache:
+        optional: true
+      nunjucks:
+        optional: true
+      plates:
+        optional: true
+      pug:
+        optional: true
+      qejs:
+        optional: true
+      ractive:
+        optional: true
+      razor-tmpl:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      slm:
+        optional: true
+      squirrelly:
+        optional: true
+      swig:
+        optional: true
+      swig-templates:
+        optional: true
+      teacup:
+        optional: true
+      templayed:
+        optional: true
+      then-jade:
+        optional: true
+      then-pug:
+        optional: true
+      tinyliquid:
+        optional: true
+      toffee:
+        optional: true
+      twig:
+        optional: true
+      twing:
+        optional: true
+      underscore:
+        optional: true
+      vash:
+        optional: true
+      velocityjs:
+        optional: true
+      walrus:
+        optional: true
+      whiskers:
+        optional: true
     dependencies:
       bluebird: 3.7.2
     dev: true
@@ -2026,6 +2292,167 @@ packages:
   /consolidate/0.16.0:
     resolution: {integrity: sha1-oRhkdokw8vGUMWYKZZBmaPX73BY=, tarball: consolidate/download/consolidate-0.16.0.tgz}
     engines: {node: '>= 0.10.0'}
+    peerDependencies:
+      arc-templates: ^0.5.3
+      atpl: '>=0.7.6'
+      babel-core: ^6.26.3
+      bracket-template: ^1.1.5
+      coffee-script: ^1.12.7
+      dot: ^1.1.3
+      dust: ^0.3.0
+      dustjs-helpers: ^1.7.4
+      dustjs-linkedin: ^2.7.5
+      eco: ^1.1.0-rc-3
+      ect: ^0.5.9
+      ejs: ^3.1.5
+      haml-coffee: ^1.14.1
+      hamlet: ^0.3.3
+      hamljs: ^0.6.2
+      handlebars: ^4.7.6
+      hogan.js: ^3.0.2
+      htmling: ^0.0.8
+      jade: ^1.11.0
+      jazz: ^0.0.18
+      jqtpl: ~1.1.0
+      just: ^0.1.8
+      liquid-node: ^3.0.1
+      liquor: ^0.0.5
+      lodash: ^4.17.20
+      marko: ^3.14.4
+      mote: ^0.2.0
+      mustache: ^4.0.1
+      nunjucks: ^3.2.2
+      plates: ~0.4.11
+      pug: ^3.0.0
+      qejs: ^3.0.5
+      ractive: ^1.3.12
+      razor-tmpl: ^1.3.1
+      react: ^16.13.1
+      react-dom: ^16.13.1
+      slm: ^2.0.0
+      squirrelly: ^5.1.0
+      swig: ^1.4.2
+      swig-templates: ^2.0.3
+      teacup: ^2.0.0
+      templayed: '>=0.2.3'
+      then-jade: '*'
+      then-pug: '*'
+      tinyliquid: ^0.2.34
+      toffee: ^0.3.6
+      twig: ^1.15.2
+      twing: ^5.0.2
+      underscore: ^1.11.0
+      vash: ^0.13.0
+      velocityjs: ^2.0.1
+      walrus: ^0.10.1
+      whiskers: ^0.4.0
+    peerDependenciesMeta:
+      arc-templates:
+        optional: true
+      atpl:
+        optional: true
+      babel-core:
+        optional: true
+      bracket-template:
+        optional: true
+      coffee-script:
+        optional: true
+      dot:
+        optional: true
+      dust:
+        optional: true
+      dustjs-helpers:
+        optional: true
+      dustjs-linkedin:
+        optional: true
+      eco:
+        optional: true
+      ect:
+        optional: true
+      ejs:
+        optional: true
+      haml-coffee:
+        optional: true
+      hamlet:
+        optional: true
+      hamljs:
+        optional: true
+      handlebars:
+        optional: true
+      hogan.js:
+        optional: true
+      htmling:
+        optional: true
+      jade:
+        optional: true
+      jazz:
+        optional: true
+      jqtpl:
+        optional: true
+      just:
+        optional: true
+      liquid-node:
+        optional: true
+      liquor:
+        optional: true
+      lodash:
+        optional: true
+      marko:
+        optional: true
+      mote:
+        optional: true
+      mustache:
+        optional: true
+      nunjucks:
+        optional: true
+      plates:
+        optional: true
+      pug:
+        optional: true
+      qejs:
+        optional: true
+      ractive:
+        optional: true
+      razor-tmpl:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      slm:
+        optional: true
+      squirrelly:
+        optional: true
+      swig:
+        optional: true
+      swig-templates:
+        optional: true
+      teacup:
+        optional: true
+      templayed:
+        optional: true
+      then-jade:
+        optional: true
+      then-pug:
+        optional: true
+      tinyliquid:
+        optional: true
+      toffee:
+        optional: true
+      twig:
+        optional: true
+      twing:
+        optional: true
+      underscore:
+        optional: true
+      vash:
+        optional: true
+      velocityjs:
+        optional: true
+      walrus:
+        optional: true
+      whiskers:
+        optional: true
     dependencies:
       bluebird: 3.7.2
     dev: true
@@ -2285,6 +2712,11 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=, tarball: debug/download/debug-2.6.9.tgz?cache=0&sync_timestamp=1636334993712&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdebug%2Fdownload%2Fdebug-2.6.9.tgz}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.0.0
     dev: true
@@ -2448,7 +2880,7 @@ packages:
     dev: true
 
   /esbuild-android-arm64/0.13.14:
-    resolution: {integrity: sha512-Q+Xhfp827r+ma8/DJgpMRUbDZfefsk13oePFEXEIJ4gxFbNv5+vyiYXYuKm43/+++EJXpnaYmEnu4hAKbAWYbA==, tarball: esbuild-android-arm64/download/esbuild-android-arm64-0.13.14.tgz}
+    resolution: {integrity: sha512-Q+Xhfp827r+ma8/DJgpMRUbDZfefsk13oePFEXEIJ4gxFbNv5+vyiYXYuKm43/+++EJXpnaYmEnu4hAKbAWYbA==}
     cpu: [arm64]
     os: [android]
     requiresBuild: true
@@ -2456,7 +2888,7 @@ packages:
     optional: true
 
   /esbuild-darwin-64/0.13.14:
-    resolution: {integrity: sha512-YmOhRns6QBNSjpVdTahi/yZ8dscx9ai7a6OY6z5ACgOuQuaQ2Qk2qgJ0/siZ6LgD0gJFMV8UINFV5oky5TFNQQ==, tarball: esbuild-darwin-64/download/esbuild-darwin-64-0.13.14.tgz}
+    resolution: {integrity: sha512-YmOhRns6QBNSjpVdTahi/yZ8dscx9ai7a6OY6z5ACgOuQuaQ2Qk2qgJ0/siZ6LgD0gJFMV8UINFV5oky5TFNQQ==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
@@ -2464,7 +2896,7 @@ packages:
     optional: true
 
   /esbuild-darwin-arm64/0.13.14:
-    resolution: {integrity: sha512-Lp00VTli2jqZghSa68fx3fEFCPsO1hK59RMo1PRap5RUjhf55OmaZTZYnCDI0FVlCtt+gBwX5qwFt4lc6tI1xg==, tarball: esbuild-darwin-arm64/download/esbuild-darwin-arm64-0.13.14.tgz}
+    resolution: {integrity: sha512-Lp00VTli2jqZghSa68fx3fEFCPsO1hK59RMo1PRap5RUjhf55OmaZTZYnCDI0FVlCtt+gBwX5qwFt4lc6tI1xg==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
@@ -2472,7 +2904,7 @@ packages:
     optional: true
 
   /esbuild-freebsd-64/0.13.14:
-    resolution: {integrity: sha512-BKosI3jtvTfnmsCW37B1TyxMUjkRWKqopR0CE9AF2ratdpkxdR24Vpe3gLKNyWiZ7BE96/SO5/YfhbPUzY8wKw==, tarball: esbuild-freebsd-64/download/esbuild-freebsd-64-0.13.14.tgz}
+    resolution: {integrity: sha512-BKosI3jtvTfnmsCW37B1TyxMUjkRWKqopR0CE9AF2ratdpkxdR24Vpe3gLKNyWiZ7BE96/SO5/YfhbPUzY8wKw==}
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
@@ -2480,7 +2912,7 @@ packages:
     optional: true
 
   /esbuild-freebsd-arm64/0.13.14:
-    resolution: {integrity: sha512-yd2uh0yf+fWv5114+SYTl4/1oDWtr4nN5Op+PGxAkMqHfYfLjFKpcxwCo/QOS/0NWqPVE8O41IYZlFhbEN2B8Q==, tarball: esbuild-freebsd-arm64/download/esbuild-freebsd-arm64-0.13.14.tgz}
+    resolution: {integrity: sha512-yd2uh0yf+fWv5114+SYTl4/1oDWtr4nN5Op+PGxAkMqHfYfLjFKpcxwCo/QOS/0NWqPVE8O41IYZlFhbEN2B8Q==}
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
@@ -2488,7 +2920,7 @@ packages:
     optional: true
 
   /esbuild-linux-32/0.13.14:
-    resolution: {integrity: sha512-a8rOnS1oWSfkkYWXoD2yXNV4BdbDKA7PNVQ1klqkY9SoSApL7io66w5H44mTLsfyw7G6Z2vLlaLI2nz9MMAowA==, tarball: esbuild-linux-32/download/esbuild-linux-32-0.13.14.tgz}
+    resolution: {integrity: sha512-a8rOnS1oWSfkkYWXoD2yXNV4BdbDKA7PNVQ1klqkY9SoSApL7io66w5H44mTLsfyw7G6Z2vLlaLI2nz9MMAowA==}
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
@@ -2496,7 +2928,7 @@ packages:
     optional: true
 
   /esbuild-linux-64/0.13.14:
-    resolution: {integrity: sha512-yPZSoMs9W2MC3Dw+6kflKt5FfQm6Dicex9dGIr1OlHRsn3Hm7yGMUTctlkW53KknnZdOdcdd5upxvbxqymczVQ==, tarball: esbuild-linux-64/download/esbuild-linux-64-0.13.14.tgz}
+    resolution: {integrity: sha512-yPZSoMs9W2MC3Dw+6kflKt5FfQm6Dicex9dGIr1OlHRsn3Hm7yGMUTctlkW53KknnZdOdcdd5upxvbxqymczVQ==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
@@ -2504,7 +2936,7 @@ packages:
     optional: true
 
   /esbuild-linux-arm/0.13.14:
-    resolution: {integrity: sha512-8chZE4pkKRvJ/M/iwsNQ1KqsRg2RyU5eT/x2flNt/f8F2TVrDreR7I0HEeCR50wLla3B1C3wTIOzQBmjuc6uWg==, tarball: esbuild-linux-arm/download/esbuild-linux-arm-0.13.14.tgz}
+    resolution: {integrity: sha512-8chZE4pkKRvJ/M/iwsNQ1KqsRg2RyU5eT/x2flNt/f8F2TVrDreR7I0HEeCR50wLla3B1C3wTIOzQBmjuc6uWg==}
     cpu: [arm]
     os: [linux]
     requiresBuild: true
@@ -2512,7 +2944,7 @@ packages:
     optional: true
 
   /esbuild-linux-arm64/0.13.14:
-    resolution: {integrity: sha512-Lvo391ln9PzC334e+jJ2S0Rt0cxP47eoH5gFyv/E8HhOnEJTvm7A+RRnMjjHnejELacTTfYgFGQYPjLsi/jObQ==, tarball: esbuild-linux-arm64/download/esbuild-linux-arm64-0.13.14.tgz}
+    resolution: {integrity: sha512-Lvo391ln9PzC334e+jJ2S0Rt0cxP47eoH5gFyv/E8HhOnEJTvm7A+RRnMjjHnejELacTTfYgFGQYPjLsi/jObQ==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
@@ -2520,7 +2952,7 @@ packages:
     optional: true
 
   /esbuild-linux-mips64le/0.13.14:
-    resolution: {integrity: sha512-MZhgxbmrWbpY3TOE029O6l5tokG9+Yoj2hW7vdit/d/VnmneqeGrSHADuDL6qXM8L5jaCiaivb4VhsyVCpdAbQ==, tarball: esbuild-linux-mips64le/download/esbuild-linux-mips64le-0.13.14.tgz}
+    resolution: {integrity: sha512-MZhgxbmrWbpY3TOE029O6l5tokG9+Yoj2hW7vdit/d/VnmneqeGrSHADuDL6qXM8L5jaCiaivb4VhsyVCpdAbQ==}
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
@@ -2528,7 +2960,7 @@ packages:
     optional: true
 
   /esbuild-linux-ppc64le/0.13.14:
-    resolution: {integrity: sha512-un7KMwS7fX1Un6BjfSZxTT8L5cV/8Uf4SAhM7WYy2XF8o8TI+uRxxD03svZnRNIPsN2J5cl6qV4n7Iwz+yhhVw==, tarball: esbuild-linux-ppc64le/download/esbuild-linux-ppc64le-0.13.14.tgz}
+    resolution: {integrity: sha512-un7KMwS7fX1Un6BjfSZxTT8L5cV/8Uf4SAhM7WYy2XF8o8TI+uRxxD03svZnRNIPsN2J5cl6qV4n7Iwz+yhhVw==}
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
@@ -2536,7 +2968,7 @@ packages:
     optional: true
 
   /esbuild-netbsd-64/0.13.14:
-    resolution: {integrity: sha512-5ekKx/YbOmmlTeNxBjh38Uh5TGn5C4uyqN17i67k18pS3J+U2hTVD7rCxcFcRS1AjNWumkVL3jWqYXadFwMS0Q==, tarball: esbuild-netbsd-64/download/esbuild-netbsd-64-0.13.14.tgz}
+    resolution: {integrity: sha512-5ekKx/YbOmmlTeNxBjh38Uh5TGn5C4uyqN17i67k18pS3J+U2hTVD7rCxcFcRS1AjNWumkVL3jWqYXadFwMS0Q==}
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
@@ -2544,7 +2976,7 @@ packages:
     optional: true
 
   /esbuild-openbsd-64/0.13.14:
-    resolution: {integrity: sha512-9bzvwewHjct2Cv5XcVoE1yW5YTW12Sk838EYfA46abgnhxGoFSD1mFcaztp5HHC43AsF+hQxbSFG/RilONARUA==, tarball: esbuild-openbsd-64/download/esbuild-openbsd-64-0.13.14.tgz}
+    resolution: {integrity: sha512-9bzvwewHjct2Cv5XcVoE1yW5YTW12Sk838EYfA46abgnhxGoFSD1mFcaztp5HHC43AsF+hQxbSFG/RilONARUA==}
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
@@ -2552,7 +2984,7 @@ packages:
     optional: true
 
   /esbuild-sunos-64/0.13.14:
-    resolution: {integrity: sha512-mjMrZB76M6FmoiTvj/RGWilrioR7gVwtFBRVugr9qLarXMIU1W/pQx+ieEOtflrW61xo8w1fcxyHsVVGRvoQ0w==, tarball: esbuild-sunos-64/download/esbuild-sunos-64-0.13.14.tgz}
+    resolution: {integrity: sha512-mjMrZB76M6FmoiTvj/RGWilrioR7gVwtFBRVugr9qLarXMIU1W/pQx+ieEOtflrW61xo8w1fcxyHsVVGRvoQ0w==}
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
@@ -2560,7 +2992,7 @@ packages:
     optional: true
 
   /esbuild-windows-32/0.13.14:
-    resolution: {integrity: sha512-GZa6mrx2rgfbH/5uHg0Rdw50TuOKbdoKCpEBitzmG5tsXBdce+cOL+iFO5joZc6fDVCLW3Y6tjxmSXRk/v20Hg==, tarball: esbuild-windows-32/download/esbuild-windows-32-0.13.14.tgz}
+    resolution: {integrity: sha512-GZa6mrx2rgfbH/5uHg0Rdw50TuOKbdoKCpEBitzmG5tsXBdce+cOL+iFO5joZc6fDVCLW3Y6tjxmSXRk/v20Hg==}
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
@@ -2568,7 +3000,7 @@ packages:
     optional: true
 
   /esbuild-windows-64/0.13.14:
-    resolution: {integrity: sha512-Lsgqah24bT7ClHjLp/Pj3A9wxjhIAJyWQcrOV4jqXAFikmrp2CspA8IkJgw7HFjx6QrJuhpcKVbCAe/xw0i2yw==, tarball: esbuild-windows-64/download/esbuild-windows-64-0.13.14.tgz}
+    resolution: {integrity: sha512-Lsgqah24bT7ClHjLp/Pj3A9wxjhIAJyWQcrOV4jqXAFikmrp2CspA8IkJgw7HFjx6QrJuhpcKVbCAe/xw0i2yw==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -2576,7 +3008,7 @@ packages:
     optional: true
 
   /esbuild-windows-arm64/0.13.14:
-    resolution: {integrity: sha512-KP8FHVlWGhM7nzYtURsGnskXb/cBCPTfj0gOKfjKq2tHtYnhDZywsUG57nk7TKhhK0fL11LcejHG3LRW9RF/9A==, tarball: esbuild-windows-arm64/download/esbuild-windows-arm64-0.13.14.tgz}
+    resolution: {integrity: sha512-KP8FHVlWGhM7nzYtURsGnskXb/cBCPTfj0gOKfjKq2tHtYnhDZywsUG57nk7TKhhK0fL11LcejHG3LRW9RF/9A==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
@@ -2641,7 +3073,7 @@ packages:
       eslint: 8.2.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_307f015733298e29da9050ea0cee5b9e:
+  /eslint-plugin-prettier/4.0.0_gb7qcvztfghctwuqkdvaz3s3ty:
     resolution: {integrity: sha1-i5nR5LiySnYkcrRWeZICNhnLmOA=, tarball: eslint-plugin-prettier/download/eslint-plugin-prettier-4.0.0.tgz}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -3055,7 +3487,7 @@ packages:
     dev: true
 
   /fsevents/2.3.2:
-    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, tarball: fsevents/download/fsevents-2.3.2.tgz}
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -5002,12 +5434,12 @@ packages:
     dev: true
 
   /to-fast-properties/1.0.3:
-    resolution: {integrity: sha1-uDVx+k2MJbguIxsG46MFXeTKGkc=, tarball: to-fast-properties/download/to-fast-properties-1.0.3.tgz}
+    resolution: {integrity: sha512-lxrWP8ejsq+7E3nNjwYmUBMAgjMTZoTI+sdBOpvNyijeDLa29LUn9QaoXAHv4+Z578hbmHHJKZknzxVtvo77og==}
     engines: {node: '>=0.10.0'}
     dev: true
 
   /to-fast-properties/2.0.0:
-    resolution: {integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=, tarball: to-fast-properties/download/to-fast-properties-2.0.0.tgz}
+    resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
     dev: true
 
@@ -5114,7 +5546,7 @@ packages:
     dev: false
 
   /uglify-js/3.14.4:
-    resolution: {integrity: sha512-AbiSR44J0GoCeV81+oxcy/jDOElO2Bx3d0MfQCUShq7JRXaM4KtQopZsq2vFv8bCq2yMaGrw1FgygUd03RyRDA==, tarball: uglify-js/download/uglify-js-3.14.4.tgz}
+    resolution: {integrity: sha512-AbiSR44J0GoCeV81+oxcy/jDOElO2Bx3d0MfQCUShq7JRXaM4KtQopZsq2vFv8bCq2yMaGrw1FgygUd03RyRDA==}
     engines: {node: '>=0.8.0'}
     hasBin: true
     requiresBuild: true
@@ -5237,7 +5669,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-vue2/1.9.0_cd1846aafe4c35f31c699104ee2df148:
+  /vite-plugin-vue2/1.9.0_zumenkx6jq27ghdjseco4lprja:
     resolution: {integrity: sha1-WTMGmcOE1NvmwN7Qz7SB8RTkaDI=, tarball: vite-plugin-vue2/download/vite-plugin-vue2-1.9.0.tgz}
     peerDependencies:
       vite: ^2.0.0-beta.23
@@ -5267,7 +5699,60 @@ packages:
       vue-template-compiler: 2.6.14
       vue-template-es2015-compiler: 1.9.1
     transitivePeerDependencies:
+      - arc-templates
+      - atpl
+      - babel-core
+      - bracket-template
+      - coffee-script
+      - dot
+      - dust
+      - dustjs-helpers
+      - dustjs-linkedin
+      - eco
+      - ect
+      - ejs
+      - haml-coffee
+      - hamlet
+      - hamljs
+      - handlebars
+      - hogan.js
+      - htmling
+      - jade
+      - jazz
+      - jqtpl
+      - just
+      - liquid-node
+      - liquor
+      - lodash
+      - marko
+      - mote
+      - mustache
+      - nunjucks
+      - plates
+      - pug
+      - qejs
+      - ractive
+      - razor-tmpl
+      - react
+      - react-dom
+      - slm
+      - squirrelly
       - supports-color
+      - swig
+      - swig-templates
+      - teacup
+      - templayed
+      - then-jade
+      - then-pug
+      - tinyliquid
+      - toffee
+      - twig
+      - twing
+      - underscore
+      - vash
+      - velocityjs
+      - walrus
+      - whiskers
     dev: true
 
   /vite/2.6.14_sass@1.32.13:
