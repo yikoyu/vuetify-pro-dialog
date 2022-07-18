@@ -80,7 +80,7 @@ export default Vue.extend({
     return {
       isActive: false,
       verticalOffset: 0,
-      timer: null as NodeJS.Timeout | null,
+      timer: null as number | null,
 
       top: (this.position || '').includes('top'),
       left: (this.position || '').includes('left'),
