@@ -1,4 +1,4 @@
-import Vue, { VNodeChildren, VNode } from 'vue'
+import { VNode } from 'vue-demi'
 
 export type MessageType = 'success' | 'warning' | 'info' | 'error' | 'loading'
 
@@ -24,7 +24,7 @@ export interface MessageOptions {
   rounded: boolean | string
   outlined: boolean
   shaped: boolean
-  text: string | (() => string | VNodeChildren | VNode | undefined)
+  text: string | (() => string | VNode | undefined)
   type: MessageType
   color: string
   showIcon: boolean
@@ -37,7 +37,7 @@ export interface MessageProps extends Omit<MessageOptions, 'key'> {
   onClose: () => void
 }
 
-export declare class MessageComponent extends Vue implements Partial<MessageProps> {
+export declare class MessageComponent implements Partial<MessageProps> {
   timeout: number
   position: MessagePosition
   vertical: boolean

@@ -1,5 +1,5 @@
-<script lang="tsx">
-import Vue, { PropType, VNodeChildren, VNode } from 'vue'
+<script lang="ts">
+import { computed, defineComponent, PropType, ref, unref, watch, h } from 'vue-demi'
 import { VSnackbar, VBtn, VIcon, VProgressCircular } from 'vuetify/lib'
 import MessageTransition from '@/components/MessageTransition/index.vue'
 import type { MessageProps } from './type'
@@ -73,66 +73,78 @@ export const defaultMessageProps = {
   }
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: 'VuetifyProMessage',
   props: { ...defaultMessageProps },
-  data() {
-    return {
-      isActive: false,
-      verticalOffset: 0,
-      timer: null as number | null,
+  setup(props) {
+    const isActive = ref<boolean>(false)
+    const verticalOffset = ref<number>(0)
+    const timer = ref<number | null>(null)
 
-      top: (this.position || '').includes('top'),
-      left: (this.position || '').includes('left'),
-      right: (this.position || '').includes('right'),
-      bottom: (this.position || '').includes('bottom')
+    const top = ref((props.position || '').includes('top'))
+    const left = ref((props.position || '').includes('left'))
+    const right = ref((props.position || '').includes('right'))
+    const bottom = ref((props.position || '').includes('bottom'))
+
+    const getColor = computed(() => {
+      if (props.type === 'loading') return props.color
+      return props.color || props.type
+    })
+
+    const getText = computed(() => {
+      return typeof props.text === 'function' ? props.text() : props.text
+    })
+
+    const positionStyle = computed(() => ({
+      [`${unref(top) ? 'top' : 'bottom'}`]: `${unref(verticalOffset)}px`
+    }))
+
+    function close() {
+      isActive.value = false
     }
-  },
-  computed: {
-    getColor(): string {
-      if (this.type === 'loading') return this.color
-      return this.color || this.type
-    },
-    getText(): string | VNode | VNodeChildren | undefined {
-      return typeof this.text === 'function' ? this.text() : this.text
-    },
-    positionStyle(): Record<string, string> {
-      return {
-        [`${this.top ? 'top' : 'bottom'}`]: `${this.verticalOffset}px`
-      }
-    }
-  },
-  watch: {
-    isActive(val) {
-      if (val) {
-        this.startTimer()
-      }
-      if (!val && typeof this.onClose === 'function') {
-        this.onClose()
+
+    function startTimer() {
+      if (props.timeout > 0) {
+        timer.value = setTimeout(() => close(), props.timeout)
       }
     }
-  },
-  methods: {
-    close() {
-      this.isActive = false
-    },
 
-    startTimer() {
-      if (this.timeout > 0) {
-        this.timer = setTimeout(() => {
-          this.close()
-        }, this.timeout)
-      }
-    },
-
-    resetTimer() {
-      if (!this.timer) {
-        this.startTimer()
+    function resetTimer() {
+      if (!timer.value) {
+        startTimer()
         return
       }
 
-      clearTimeout(this.timer)
-      this.startTimer()
+      clearTimeout(timer.value)
+      startTimer()
+    }
+
+    watch(isActive, val => {
+      if (val) {
+        startTimer()
+      }
+      if (!val && typeof props.onClose === 'function') {
+        props.onClose()
+      }
+    })
+
+    return {
+      isActive,
+      verticalOffset,
+      timer,
+
+      top,
+      left,
+      right,
+      bottom,
+
+      getColor,
+      getText,
+      positionStyle,
+
+      close,
+      startTimer,
+      resetTimer
     }
   },
   render() {
@@ -144,53 +156,76 @@ export default Vue.extend({
     const action = ({ attrs }: { attrs: Record<string, any> }) => {
       if (typeof this.action === 'function') return this.action({ attrs, on: { click: closeSnackbar } })
 
-      return (
-        <VBtn right={!this.$vuetify.rtl} left={this.$vuetify.rtl} icon on-click={closeSnackbar}>
-          <VIcon>$close</VIcon>
-        </VBtn>
+      return h(
+        VBtn,
+        {
+          attrs: {
+            right: !this.$vuetify.rtl,
+            left: this.$vuetify.rtl,
+            icon: true
+          },
+          on: {
+            click: closeSnackbar
+          }
+        },
+        [h(VIcon, '$close')]
       )
     }
 
-    const genIcon = (
-      <VIcon size="14" right={this.$vuetify.rtl} left={!this.$vuetify.rtl}>
-        {`$${this.type}`}
-      </VIcon>
+    const genIcon = h(
+      VIcon,
+      {
+        attrs: {
+          size: '14',
+          right: this.$vuetify.rtl,
+          left: !this.$vuetify.rtl
+        }
+      },
+      `$${this.type}`
     )
 
-    const genProgress = <VProgressCircular size="14" width="2" indeterminate color="primary" class="mr-1"></VProgressCircular>
+    const genProgress = h(VProgressCircular, {
+      class: 'mr-1',
+      attrs: {
+        size: '14',
+        width: '2',
+        indeterminate: true,
+        color: 'primary'
+      }
+    })
 
-    return (
-      <MessageTransition position={this.position}>
-        <VSnackbar
-          value={true}
-          {...{ directives: [{ name: 'show', value: this.isActive }] }}
-          app={this.app}
-          timeout={-1}
-          color={this.getColor}
-          top={this.top}
-          left={this.left}
-          right={this.right}
-          bottom={this.bottom}
-          multi-line={this.multiLine}
-          vertical={this.vertical}
-          elevation={this.elevation}
-          text={this.flat}
-          centered={this.centered}
-          rounded={this.rounded}
-          outlined={this.outlined}
-          shaped={this.shaped}
-          transition={false}
-          style={this.positionStyle}
-          scopedSlots={{
-            action: hasAction ? action : undefined
-          }}
-        >
-          {hasIcon && genIcon}
-          {hasProgress && genProgress}
-          {this.getText}
-        </VSnackbar>
-      </MessageTransition>
+    const snackbar = h(
+      VSnackbar,
+      {
+        directives: [{ name: 'show', value: this.isActive }],
+        style: this.positionStyle,
+        scopedSlots: {
+          action: hasAction ? action : undefined
+        },
+        attrs: {
+          value: true,
+          app: this.app,
+          timeout: -1,
+          color: this.getColor,
+          top: this.top,
+          left: this.left,
+          right: this.right,
+          bottom: this.bottom,
+          multiLine: this.multiLine,
+          vertical: this.vertical,
+          elevation: this.elevation,
+          text: this.flat,
+          centered: this.centered,
+          rounded: this.rounded,
+          outlined: this.outlined,
+          shaped: this.shaped,
+          transition: false
+        }
+      },
+      [hasIcon ? genIcon : undefined, hasProgress ? genProgress : undefined, this.getText]
     )
+
+    return h(MessageTransition, { attrs: { position: this.position } }, [snackbar])
   }
 })
 </script>

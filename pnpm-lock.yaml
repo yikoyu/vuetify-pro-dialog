@@ -10,6 +10,7 @@ importers:
       '@rushstack/eslint-patch': ^1.1.4
       '@types/lodash.merge': ^4.6.7
       '@vue/compiler-sfc': ^3.2.22
+      '@vue/composition-api': ^1.7.0
       '@vue/eslint-config-prettier': ^7.0.0
       '@vue/eslint-config-typescript': ^11.0.0
       '@vue/runtime-dom': ^3.2.37
@@ -32,9 +33,12 @@ importers:
       vite-plugin-eslint: ^1.6.1
       vite-plugin-vue2: ^2.0.2
       vue: ^2.6.14
+      vue-demi: ^0.13.5
       vue-template-compiler: ^2.6.14
       vue-tsc: ^0.29.5
       vuetify: ^2.6.7
+    dependencies:
+      vue-demi: 0.13.5_hn455vsswqh6jsixz5wzxonx6i
     devDependencies:
       '@commitlint/cli': 17.0.3
       '@commitlint/config-conventional': 17.0.3
@@ -42,6 +46,7 @@ importers:
       '@rushstack/eslint-patch': 1.1.4
       '@types/lodash.merge': 4.6.7
       '@vue/compiler-sfc': 3.2.22
+      '@vue/composition-api': 1.7.0_vue@2.6.14
       '@vue/eslint-config-prettier': 7.0.0_vvfpqh5kol6rhqy7beehv5uezq
       '@vue/eslint-config-typescript': 11.0.0_6j5mhoz6kzyrljnwywcpujjcya
       '@vue/runtime-dom': 3.2.37
@@ -1432,6 +1437,13 @@ packages:
     peerDependencies:
       vue: '>= 2.5 < 2.7'
     dev: false
+
+  /@vue/composition-api/1.7.0_vue@2.6.14:
+    resolution: {integrity: sha512-hxOgLYR+wjuPX9bkP2pAPlqUs98XxBoa9DSLyp1z6+YR92wC42PZcZKs4d+VRtcv4udOv041Kss+F6ap5nj8YA==}
+    peerDependencies:
+      vue: '>= 2.5 < 2.7'
+    dependencies:
+      vue: 2.6.14
 
   /@vue/eslint-config-prettier/7.0.0_vvfpqh5kol6rhqy7beehv5uezq:
     resolution: {integrity: sha512-/CTc6ML3Wta1tCe1gUeO0EYnVXfo3nJXsIhZ8WJr3sov+cGASr6yuiibJTL6lmIBm7GobopToOuB3B6AWyV0Iw==}
@@ -5654,6 +5666,22 @@ packages:
       vscode-typescript-languageservice: 0.29.5
     dev: true
 
+  /vue-demi/0.13.5_hn455vsswqh6jsixz5wzxonx6i:
+    resolution: {integrity: sha512-tO3K2bML3AwiHmVHeKCq6HLef2st4zBXIV5aEkoJl6HZ+gJWxWv2O8wLH8qrA3SX3lDoTDHNghLX1xZg83MXvw==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      '@vue/composition-api': 1.7.0_vue@2.6.14
+      vue: 2.6.14
+    dev: false
+
   /vue-eslint-parser/9.0.3_eslint@8.20.0:
     resolution: {integrity: sha512-yL+ZDb+9T0ELG4VIFo/2anAOz8SvBdlqEnQnvJ3M7Scq56DvtjY0VY88bByRZB0D4J0u8olBcfrXTVONXsh4og==}
     engines: {node: ^14.17.0 || >=16.0.0}
@@ -5719,7 +5747,6 @@ packages:
 
   /vue/2.6.14:
     resolution: {integrity: sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==, tarball: vue/download/vue-2.6.14.tgz}
-    dev: true
 
   /vuetify/2.6.7_vue@2.6.14:
     resolution: {integrity: sha512-1XxCv6mt1UsKaW7rqow0hF/jOw1ijT/fHH9euWLHgSVIcPAx8D2AY5ihTCBbMmV53Hj/YD0DUvzyk6cM/OGHvw==}

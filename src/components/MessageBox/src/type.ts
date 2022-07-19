@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 import type { InputValidationRules } from 'vuetify/types'
 
 export type MessageBoxType = 'confirm' | 'alert' | 'prompt'
@@ -43,7 +41,7 @@ export interface MessageBoxProps extends MessageBoxOptions {
   $type: MessageBoxType
 }
 
-export declare class MessageBoxComponent extends Vue implements Partial<MessageBoxProps> {
+export declare class MessageBoxComponent implements Partial<MessageBoxProps> {
   id: string
   isActive: boolean
   disabled: boolean

@@ -20,15 +20,19 @@
 
       <v-card-actions>
         <v-spacer />
-        <v-btn text :color="actions.false ? actions.false.color : undefined" @click="cancel" v-if="!['alert'].includes($type)">{{ cancelText }}</v-btn>
-        <v-btn text :color="actions.true ? actions.true.color : undefined" :loading="promptDisabled" @click="confirm">{{ confirmText }}</v-btn>
+        <v-btn text :color="actions && actions.false ? actions.false.color : undefined" @click="cancel" v-if="!['alert'].includes($type)">
+          {{ cancelText }}
+        </v-btn>
+        <v-btn text :color="actions && actions.true ? actions.true.color : undefined" :loading="promptDisabled" @click="confirm">{{ confirmText }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { computed, defineComponent, ref, unref, watch } from 'vue-demi'
+import type { PropType } from 'vue-demi'
+import useContext from '@/hooks/use-context'
 import locale from '@/locales'
 import type { MessageBoxProps } from './type'
 
@@ -97,101 +101,126 @@ export const defaultMessageBoxProps = {
   }
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: 'VuetifyProMessageBox',
   props: { ...defaultMessageBoxProps },
-  data() {
-    return {
-      isActive: false,
-      disabled: false,
-      textValue: ''
-    }
-  },
-  watch: {
-    isActive(val) {
-      if (!val) this._destroy()
-    }
-  },
-  computed: {
-    getIcon(): unknown {
-      if (this.icon === false) return
-      return this.icon || (this.$vuetify && this.$vuetify.icons && this.$vuetify.icons.values[this.type]) || this.type
-    },
-    getColor(): string {
-      return this.color || this.type
-    },
-    getText(): string {
-      return typeof this.text === 'function' ? this.text() : this.text
-    },
-    getTitle(): string {
-      return typeof this.title === 'function' ? this.title() : this.title
-    },
-    confirmText(): string {
-      return typeof this.actions.true?.text === 'function'
-        ? this.actions.true.text()
-        : typeof this.actions.true?.text === 'string'
-        ? this.actions.true.text
+  setup(props) {
+    const prompt = ref<Record<string, any> | null>(null)
+    const root = useContext()
+
+    const isActive = ref<boolean>(false)
+    const disabled = ref<boolean>(false)
+    const textValue = ref<string>('')
+
+    const getIcon = computed(() => {
+      if (props.icon === false) return
+      return props.icon || root?.$vuetify?.icons?.values[props.type] || props.type
+    })
+
+    const getColor = computed(() => {
+      return props.color || props.type
+    })
+
+    const getText = computed(() => {
+      return typeof props.text === 'function' ? props.text() : props.text
+    })
+
+    const getTitle = computed(() => {
+      return typeof props.title === 'function' ? props.title() : props.title
+    })
+
+    const confirmText = computed(() => {
+      return typeof props.actions?.true?.text === 'function'
+        ? props.actions.true.text()
+        : typeof props.actions?.true?.text === 'string'
+        ? props.actions.true.text
         : ''
-    },
-    cancelText(): string {
-      return typeof this.actions.false?.text === 'function'
-        ? this.actions.false.text()
-        : typeof this.actions.false?.text === 'string'
-        ? this.actions.false.text
+    })
+
+    const cancelText = computed(() => {
+      return typeof props.actions?.false?.text === 'function'
+        ? props.actions.false.text()
+        : typeof props.actions?.false?.text === 'string'
+        ? props.actions.false.text
         : ''
-    },
-    promptDisabled(): boolean {
-      return ['confirm', 'prompt'].includes(this.$type) && this.disabled
-    }
-  },
-  methods: {
-    handleAction(key: 'cancel' | 'confirm') {},
+    })
+
+    const promptDisabled = computed(() => {
+      return ['confirm', 'prompt'].includes(props.$type) && unref(disabled)
+    })
+
+    function handleAction(key: 'cancel' | 'confirm') {}
 
     /** dialog外部点击 */
-    dialogOutside() {
-      const t = !['alert'].includes(this.$type) ? 'cancel' : 'confirm'
-      !this.persistent && !this.disabled && this.handleAction(t)
-    },
+    function dialogOutside() {
+      const t = !['alert'].includes(props.$type) ? 'cancel' : 'confirm'
+      !props.persistent && !unref(disabled) && handleAction(t)
+    }
 
     /** 点击关闭按钮 */
-    dialogClose() {
-      const t = !['alert'].includes(this.$type) ? 'cancel' : 'confirm'
-      !this.disabled && this.handleAction(t)
-    },
+    function dialogClose() {
+      const t = !['alert'].includes(props.$type) ? 'cancel' : 'confirm'
+      !unref(disabled) && handleAction(t)
+    }
 
     /** 点击确认按钮 */
-    async confirm() {
-      if (this.disabled) return
+    async function confirm() {
+      if (unref(disabled)) return
 
-      if (this.$type === 'prompt') {
-        const bool = await (this.$refs.prompt as any).validate(true)
+      if (props.$type === 'prompt') {
+        const bool = await unref(prompt)?.validate(true)
         if (!bool) return
       }
 
-      this.disabled = true
+      disabled.value = true
 
-      if (typeof this.beforeClose === 'function') {
-        const bool = await this.beforeClose(this.textValue || '')
+      if (typeof props.beforeClose === 'function') {
+        const bool = await props.beforeClose(unref(textValue) || '')
         if (!bool) {
-          this.disabled = false
+          disabled.value = false
           return
         }
       }
 
-      this.handleAction('confirm')
-    },
+      handleAction('confirm')
+    }
 
     /** 点击取消按钮 */
-    cancel() {
-      !this.disabled && this.handleAction('cancel')
-    },
+    function cancel() {
+      !unref(disabled) && handleAction('cancel')
+    }
 
     /** 销毁弹出层 */
-    _destroy() {
+    function _destroy() {
+      if (!root) return
+
       setTimeout(() => {
-        this.$destroy()
-        this.$el.parentNode?.removeChild(this.$el)
+        root.$destroy()
+        root.$el.parentNode?.removeChild(root.$el)
       }, 500)
+    }
+
+    watch(isActive, val => {
+      if (!val) _destroy()
+    })
+
+    return {
+      isActive,
+      disabled,
+      textValue,
+
+      getIcon,
+      getColor,
+      getText,
+      getTitle,
+      confirmText,
+      cancelText,
+      promptDisabled,
+
+      dialogOutside,
+      dialogClose,
+      confirm,
+      cancel
     }
   }
 })

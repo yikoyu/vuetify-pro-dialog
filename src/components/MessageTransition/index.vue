@@ -5,9 +5,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, computed, ref, unref } from 'vue-demi'
+import useContext from '@/hooks/use-context'
 
-export default Vue.extend({
+/**
+ * 1. 改为 vue-demi 写法， JSX 修改为模板写法
+ * 2. 修复 RTL 问题
+ * 3. 国际化 优化
+ * 4. 依赖问题优化
+ */
+
+export default defineComponent({
   name: 'MessageTransition',
   props: {
     position: {
@@ -15,16 +23,15 @@ export default Vue.extend({
       default: 'top-right'
     }
   },
-  data() {
-    return {
-      top: (this.position || '').includes('top'),
-      left: (this.position || '').includes('left'),
-      right: (this.position || '').includes('right'),
-      bottom: (this.position || '').includes('bottom')
-    }
-  },
-  methods: {
-    beforeEnter(el: HTMLElement) {
+  setup(props) {
+    const root = useContext()
+
+    const top = ref((props.position || '').includes('top'))
+    const left = ref((props.position || '').includes('left'))
+    const right = ref((props.position || '').includes('right'))
+    const bottom = ref((props.position || '').includes('bottom'))
+
+    function beforeEnter(el: HTMLElement) {
       const transition = [
         'transform 0.3s ease-in-out',
         'opacity 0.2s ease-in-out',
@@ -35,31 +42,41 @@ export default Vue.extend({
       ]
 
       const transform = () => {
-        if (this.left && this.$vuetify.rtl) return 'translateX(50%)'
-        if (this.left && !this.$vuetify.rtl) return 'translateX(-50%)'
-        if (this.right && this.$vuetify.rtl) return 'translateX(-50%)'
-        if (this.right && !this.$vuetify.rtl) return 'translateX(50%)'
+        if (unref(left) && root?.$vuetify.rtl) return 'translateX(50%)'
+        if (unref(left) && !root?.$vuetify.rtl) return 'translateX(-50%)'
+        if (unref(right) && root?.$vuetify.rtl) return 'translateX(-50%)'
+        if (unref(right) && !root?.$vuetify.rtl) return 'translateX(50%)'
         return ''
       }
 
       el.style.transition = transition.join(',')
       el.style.opacity = '0'
       el.style.transform = transform()
-    },
-    enter(el: HTMLElement) {
+    }
+
+    function enter(el: HTMLElement) {
       setTimeout(() => {
         el.style.opacity = '1'
         el.style.transform = 'translateX(0%)'
       })
-    },
-    leave(el: HTMLElement) {
+    }
+
+    function leave(el: HTMLElement) {
       el.style.opacity = '0'
-      if (this.top) el.style.transform = 'translateY(-50%)'
-      if (this.bottom) el.style.transform = 'translateY(50%)'
-    },
-    afterLeave(el: HTMLElement) {
-      this.$destroy()
+      if (unref(top)) el.style.transform = 'translateY(-50%)'
+      if (unref(bottom)) el.style.transform = 'translateY(50%)'
+    }
+
+    function afterLeave(el: HTMLElement) {
+      root?.$destroy()
       el.parentNode?.removeChild(el)
+    }
+
+    return {
+      beforeEnter,
+      enter,
+      leave,
+      afterLeave
     }
   }
 })

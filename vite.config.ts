@@ -25,7 +25,7 @@ export default defineConfig({
     dts()
   ],
   optimizeDeps: {
-    include: ['vue', '@vue/composition-api', 'vuetify', 'vuetify/lib']
+    include: ['vue', 'vue-demi', 'vuetify', 'vuetify/lib']
   },
   resolve: {
     alias: {
@@ -42,11 +42,12 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue',
+          vueDemi: 'vue-demi',
           vuetify: 'Vuetify',
           'vuetify/lib': 'VuetifyLib'
         }
       },
-      external: ['vue', 'vuetify', 'vuetify/lib']
+      external: ['vue', 'vue-demi', 'vuetify', 'vuetify/lib']
     }
   }
 })

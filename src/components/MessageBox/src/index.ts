@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { createApp, App } from 'vue-demi'
 import component from './index.vue'
 import { getVuetifyInstance, merge } from '@/utils'
 
@@ -12,8 +12,8 @@ type OTitleTextOpt = Partial<Omit<MessageBoxOptions, 'text' | 'title'>>
 export class MessageBoxComp {
   private settings: Settings
   private seed: number = 1
-  private instance?: MessageBoxComponent
-  private instances: MessageBoxComponent[] = []
+  private instance?: App
+  private instances: App[] = []
 
   constructor(settings: Settings) {
     this.settings = settings
@@ -24,17 +24,20 @@ export class MessageBoxComp {
       options = {}
     }
 
-    const Constructor = Vue.extend(component)
-
-    this.instance = new Constructor({
-      vuetify: getVuetifyInstance(),
-      propsData: {
+    this.instance = createApp(
+      {
+        ...component,
+        vuetify: getVuetifyInstance()
+      },
+      {
         ...options
       }
-    })
+    )
+
+    console.log('instance :>> ', this.instance)
 
     const container = document.querySelector('[data-app=true]') || document.body
-    container.appendChild(this.instance.$mount().$el)
+    container.appendChild(this.instance.mount().$el)
 
     const id = 'messagebox_' + this.seed++
     this.instance.id = id
